@@ -1,0 +1,300 @@
+
+//$w 為maxWidth設定
+
+// 1. 主要按鈕
+@mixin main-BTN($w) {
+    .mainBTN {
+        @include btn(100%, light) {
+            margin: auto;
+            font-size: $fontSize_S;
+            max-width: $w;
+            transition: .2;
+        }
+    }
+}
+
+// 2. 次要按鈕
+@mixin sub-BTN($w) {
+    .subBTN {
+        @include btn(100%) {
+            margin: auto;
+            font-size: $fontSize_S;
+            max-width: $w;
+            transition: .2;
+        }
+    }
+}
+
+// 3. 加減按鈕
+@mixin plusAndMinus-BTN {
+    .plusAndMinus {
+        @include roundBtn(40px, $color_main4) {
+            font-size: 40px;
+            font-weight: 900;
+            color: $color_main3;
+        };
+    }
+    
+}
+
+// 4. 確認及取消按鈕
+@mixin nextAndCancel-BTN($w:200px) {
+    .nextBTN,
+    .cancelBTN {
+        @include btn($w);
+        margin: 10px;
+        font-size: $fontSize_S;
+        background-color: $color_main4;
+        color: #fff;
+    }
+    .cancelBTN {
+        @include btn($w);
+        background-color: $color_main3;
+        color: $color_main2;
+    }
+}
+
+// 通用按鈕設定
+@mixin btn($w, $bgc:null) {
+    
+    position: relative;
+    // float: left;
+    display: inline-block;
+    width: $w;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    @if $bgc == light {
+        font-weight: 600;
+        color: $color_main2;
+        background-color: $color_main1;
+        box-shadow: 0px 4px 0px $color_main2;
+    } @else {
+        color: #fff;
+        background-color: $color_main2;
+        box-shadow: 0px 4px 0px $color_bonus;
+    }
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    &:hover {
+        opacity: .7;
+        transition: .2s;
+    }
+    &:active {
+        top: 2px;
+    }
+    
+    @content;
+};
+
+//通用圓按鈕設定
+@mixin roundBtn($w, $bgc:null) {
+    position: relative;
+    width: $w;
+    height: $w;
+    line-height: $w - 5;
+    text-align: center;
+    border-radius: 50%;
+    background-color: $bgc;
+    box-shadow: 0px 4px 0px $color_main2;
+    cursor: pointer;
+    // transition: .3s;
+    &:hover {
+        opacity: .6;
+        transition: .3s;
+    }
+    &:active {
+        top: 2px;
+        box-shadow: 0px 2px 0px $color_main2;
+    }
+    @content;
+};
+
+// 通用圖片設定
+@mixin picSetting {
+    .pic {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-size: 0;
+        img {
+            width: 100%;
+            // height: auto;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        &:after {
+            content: '';
+            width: 0;
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+//通用before after
+@mixin BfAf {
+    content: '';
+    display: block;
+    @content;
+}
+
+//裝飾用小三角形
+@mixin decoTri($w1:10px,$w2:10px,$w3:10px,$w4:10px,$bgc1: #aaa, $bgc2: transparent, $bgc3: transparent, $bgc4: #aaa) {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0px;
+    border-width: $w1 $w2 $w3 $w4;
+    border-style: solid;
+    border-color: $bgc1 $bgc2 $bgc3 $bgc4;
+    @content;
+};
+
+// 圓餅圖
+@mixin pieChart($w:100px, $c1:#111, $c2:#fff, $bw: 6px , $deg: 45) {
+    position: relative;
+    width: $w;
+    height: $w;
+    background: $c2;
+    background-image: linear-gradient(to right, transparent 50%, $c1 0);
+    border-radius: 1000px;
+    &:before {
+        @include BfAf;
+        margin-left: 50%;
+        height: 100%;
+        background: $c2;
+        @if($deg > 180 ) {
+            background: $c1;
+            // $deg: $deg-180;
+            $deg180: $deg - 180;
+            transform: rotate(#{$deg180}deg);
+        } @else {
+            transform: rotate(#{$deg}deg);
+        }
+        border-radius: 0 100% 100% 0/50%;
+        transform-origin: left;
+        
+    }
+    &:after {
+        @include BfAf;
+        width: $w - ($bw*2);
+        height: $w - ($bw*2);
+        position: absolute;
+        top: $bw;
+        left: $bw;
+        background-color: #fff;
+        border-radius: 100%;
+    }
+}
+
+//絕對定位的置中
+@mixin centerABS($w:100px, $h:30px, $t:0px) {
+    @include BfAf;
+    position: absolute;
+    top: $t;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $w;
+    height: $h;
+    @content;
+}
+
+// 對話框的小勾勾
+@mixin dialogunDeco {
+    .dialogueDeco {
+        @include centerABS(40px,40px) {
+            bottom: -190px;
+            height: 33px;
+            // background-color: #ddd;
+            overflow: hidden;
+        }
+        &:before {
+            @include centerABS(40px,40px) {
+                bottom: 30px;
+                background-color: $color_txt;
+                @include round(40px);
+            }
+        }
+        &:after {
+            @include centerABS(40px,40px) {
+                left: -44px;
+                bottom: 18px;
+                background-color: #fff ;
+                @include round(40px);
+            }
+        }
+    }
+}
+
+//rwd設定
+$pad: 768px;
+$PC: 1024px; 
+$lgPC: 1200px;
+
+@mixin rwdSys($device) {
+    @if $device == pad {
+        @media screen and (min-width: $pad){
+            @content
+        }
+    };
+    @if $device == PC {
+        @media screen and (min-width: $PC){
+            @content
+        }
+    };
+    @if $device == lgPC {
+        @media screen and (min-width: $lgPC){
+            @content
+        }
+    };
+}
+
+
+//滑鼠卷軸的樣式
+@mixin scrollBar($w, $bgc, $trackC, $boRad:10px) {
+    ::-webkit-scrollbar {
+        width: $w;
+        opacity: .6;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: $bgc; 
+        border-radius: $boRad;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: $trackC;
+    }
+}
+
+//提示對話框
+@mixin hint($w, $h, $bgc) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $w;
+    height: $h;
+    line-height: $h;
+    text-align: center;
+    background-color: $bgc;
+    border-radius: 10px;
+    transition: .3s;
+    @content;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -6px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0px;
+        border-width: 0px 6px 6px ;
+        border-style: solid;
+        border-color: transparent transparent $bgc;
+    }
+}

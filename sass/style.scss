@@ -1,0 +1,21 @@
+@import "reset";
+@import "nav";
+@import "mixins/general_mixins.scss";
+@import "daycookVar";
+@import "layout/reset";
+@import "daycookMixin";
+@import "general_mixins";
+@import "Team-mixins/ke_mixin";
+@import "login";//註冊登入
+@import "chatBot";//客服機器人
+@import "serach"; //搜尋
+@import "layout/nav";//nav
+
+.space{
+	height: 75px;
+}
+@media screen and (min-width: 768px){
+	.space{
+		height: 100px;
+	}
+}

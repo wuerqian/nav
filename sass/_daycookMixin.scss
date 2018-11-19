@@ -1,0 +1,80 @@
+@import "daycookVar";
+
+.clearfix:after{
+	content: '';
+	display: block;
+	width: 100%;
+	height: 0;
+	clear: both;
+}
+@mixin container($width,$mt) {
+    width: 100%;
+    max-width: $width;
+    margin: $mt auto; 
+    @content;   
+}
+@function rwdW($px){
+	@return $px * 100 /1200 + %;
+  }
+@function c100($px){
+	@return calc( 100% - #{$px}px );
+}
+
+//@import "daycookMixin";
+
+//RWD
+// @mixin rwd($breakpoint,$style:null) {
+//   @if $breakpoint == "sm" {
+//     @media screen and (min-width: $small_min) {
+//       @include grid($breakpoint, 12); //建格線
+//       @include gridStyle($breakpoint,$style); //建屬性質inline-block或float
+//       // @include gridFloat($breakpoint);
+//       @content;
+//     }
+//   } @else if $breakpoint == "md" {
+//     @media screen and (min-width: $medium_min) {
+//       @include grid($breakpoint, 12); //建格線
+//       @include gridStyle($breakpoint,$style); //建屬性質inline-block或float
+//       // @include gridFloat($breakpoint);
+//       @content;
+//     }
+//   } @else if $breakpoint == "lg" {
+//     @media screen and (min-width: $large_min) {
+//       @include grid($breakpoint, 12); //建格線
+//       @include gridStyle($breakpoint,$style); //建屬性質inline-block或float
+//       // @include gridFloat($breakpoint);
+//       @content;
+//     }
+//   }
+// }
+
+//建格線
+// @mixin grid($attr, $num) {
+//   @for $i from 1 through $num {
+//     .col-#{$attr}-#{$i} {width: ($i / $num) * 100%;}
+//   }
+// }
+//建屬性質inline-block
+// @mixin gridStyle($breakpoint,$style:null) {
+//   @if $style == inline-block{
+//     %gridStyle {
+//       display: $style;
+//       box-sizing: border-box;
+//       padding: 10px;
+//     }
+    
+//   }@else {
+//     %gridStyle {
+//       float: $style;
+//       box-sizing: border-box;
+//       padding: 10px;
+//     }
+//   }
+//   $i: 1;
+//   @while $i<=12 {
+//     .col-#{$breakpoint}-#{$i} {
+//       @extend %gridStyle;
+//     }
+//     $i: $i + 1;
+//   }
+// }

@@ -1,0 +1,40 @@
+//@import "daycookVar";
+
+
+//字體:
+$fontSize_text: 16px;
+$fontSize_S: 20px;
+$fontSize_M: 24px;
+$fontSize_L: 30px;
+$fontSize_XL: 36px;
+$fontSize_XXL: 48px;
+$fmy: 微軟正黑體, arial, "sans serif";
+$lineHeight: 1.6;
+
+// 顏色: 
+$color_txt: #333333;	//字體黑 / fontBlack / 333333 ; 
+$color_main1: #FCE444;	//小雞黃 / yellow / FCE444 ; 
+$color_main2: #76391B;	//褐色 / brown / 76391B ; 
+$color_main3: #FCF2CA;	//淡黃色 / lightYellow / FCF2CA / ; 
+$color_main4: #BB7232;	//淡褐色 / lightBrown / #BB7232; 
+$color_main5: rgb(209, 114, 31);	//淡褐色 / lightBrown /rgb(209, 114, 31); 
+$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ;
+$color_label: #208ee8;  //input focus 的label
+$color_hot2: #425075;
+$color_bonus: #FED44F;
+$color_chatBot: #FFE26A;
+$color_chatBot_text: #FEDA46;
+//RWD 用法@include rwd(sm)  
+$small_min:768px;	// @include rwd(sm){ 內容... }
+$medium_min:1024px;	// @include rwd(md){ 內容... }
+$large_min:1200px;	// @include rwd(lg){ 內容... }
+
+$breakpoint : (
+small: 576px,
+moblie :  768px,
+medium: 992px,
+desktop: 1200px
+);
+
+//小白點裡的圖示大小
+$white_point: 100px;

@@ -1,0 +1,144 @@
+//btn
+$btn_Wmin: 150px;
+$btn_Wmax: 250px;
+
+$btn_Wmin_sm: 300px;
+$btn_Wmax_sm: 300px;
+
+//搜尋頁的搜尋框line-height
+$lh:36px;
+$lh_sm:70px;
+
+//%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%ib_middle{ //置中
+  display: inline-block;
+  vertical-align: middle;
+}
+//@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin@mixin
+//顏色設定 semi-transparent-color
+@mixin semi-transparent-colors($attribute,$color,$background){ 
+  $percent: alpha($color) * 100%; //獲取顏色透明度值，並轉換成百分比 
+  $opaque: opacify($color,1); //顏色不透明度1
+  $solid-color: mix($opaque,$background,$percent); 
+  #{$attribute}: $solid-color; //為不透明顏色，for不支持的瀏覽器 
+  #{$attribute}: $color;//為透明顏色，for支持的瀏覽器 
+}
+//絕對定位的置中
+@mixin top50-50 {
+  top: 50%;
+  transform: translateY(-50%);
+};
+
+%closeJumpWindow {
+  display: block;
+  background-color: $color_main2;
+  width: 35px;
+  height: 3px;
+  position: absolute;
+}
+
+//關閉按鈕的close 偽類
+@mixin close ($top,$left){
+  &::before{
+    content: '';
+    @extend %closeJumpWindow;
+    transform: rotate(-45deg);
+    top: calc( #{$top} - 17px );
+    left: calc( #{$left} - 17px );
+    @content;
+  }
+  &::after{
+    content: '';
+    @extend %closeJumpWindow;
+    transform: rotate(45deg);
+    top: calc( #{$top} - 17px );
+    left: calc( #{$left} - 17px );
+    @content;
+  }
+}
+
+//卷軸顏色
+@mixin chatBot_scrollbar {
+  &::-webkit-scrollbar {
+    //卷軸尺寸
+    width: 10px;
+    height: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    //移動的那塊
+    background-color: $color_main4;
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $color_main2;
+  }
+  &::-webkit-scrollbar-track {
+    //背景
+    box-shadow: inset 0 0 1px $color_main4;
+    border-radius: 10px;
+  }
+  @content;
+}
+//正方形
+@mixin size($w, $h: $w) {
+  width: $w;
+  height: $h;
+}
+//RWD
+%grid {
+  float: left;
+  box-sizing: border-box;
+  padding: 10px;
+}
+$i: 1;
+@while $i<=12 {
+  .part-#{$i} {
+    @extend %grid;
+  }
+  $i: $i + 1;
+}
+@for $i from 1 through 12 {
+  .part-#{$i} {width: ($i / 12) * 100%;}
+}
+//RWD
+@mixin rwd($breakpoint) {
+  @if $breakpoint == "sm" {
+    @media screen and (min-width: $small_min) {
+      @content;
+    }
+  } @else if $breakpoint == "md" {
+    @media screen and (min-width: $medium_min) {
+      @content;
+    }
+  } @else if $breakpoint == "lg" {
+    @media screen and (min-width: $large_min) {
+      @content;
+    }
+  }
+}
+//格線@include grid(sm, 12, inline-block:null){ 內容... } 
+//inline-block不寫的話，預設float:left。
+@mixin grid($attr, $num, $point:null) {
+  @if $point == inline-block{
+    %grid_#{$attr} {
+      display: $point;
+      box-sizing: border-box;
+      padding: 16px;
+    }
+  }@else {
+    %grid_#{$attr} {
+      float: left;
+      box-sizing: border-box;
+      padding: 16px;
+    }
+  }
+  @for $i from 1 through $num {
+    .part-#{$attr}-#{$i} {width: ($i / $num) * 100%;}
+  }
+  @for $i from 1 through $num {
+    .part-#{$attr}-#{$i} {
+      @extend %grid_#{$attr}
+    }
+  }  
+}
+

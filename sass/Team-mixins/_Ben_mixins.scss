@@ -1,0 +1,143 @@
+@mixin container($width,$mt) {
+    width: 100%;
+    max-width: $width;
+    margin: $mt auto; 
+    @content;   
+}
+
+// float
+@mixin floats($classname,$dir , $width , $height) {
+    #{$classname} {
+       float: $dir; 
+       width: $width;
+       height: $height;
+    }
+}
+//border-radius
+@mixin circle ($dis,$color) {
+    width: $dis + px;
+    height: $dis + px;
+    border-radius: $dis + px;
+    border: 1px solid $color;
+    // padding: $padding + px;
+    cursor: pointer;
+    @content;
+}
+
+//前綴詞
+@mixin profix( $attr , $value){
+    -moz-#{$attr}: $value;
+    -o-#{$attr}: $value;
+    -webkit-#{$attr}: $value;
+    #{$attr}: $value;
+}
+
+@mixin btn1($a){
+    background: $a;
+}
+
+//按鈕
+@mixin buttona($bgc, $width, $height, $radius, $brc:$bgc, $color:#000) {
+    cursor: pointer;
+    background-color: $bgc;
+    border: 1px solid $brc;
+    border-radius: $radius;
+    display: inline-block;
+    text-align: center;
+    color: $color;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    padding: $height $width;
+    font-size: 1rem;
+    line-height: 1.6;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    &:hover {
+        background-color: darken($bgc, 8);
+        color: lighten($color, 5);
+    }
+    @content;
+}
+
+//search bar
+@mixin  searchBar($width,$height, $bgc,$cor,$fz,$pd) {
+    width: $width;
+    height: $height;
+    border:none;
+    border-radius:50%;
+    background-color: $bgc;
+    color: $cor;
+    font-size: $fz;
+    line-height: 1.6;
+    padding: $pd;
+    &:hover{
+        color:#000;
+    }
+    @content;
+}
+
+//背景
+@mixin bgi($images, $w, $h) {
+    @each $img in $images {
+        #{$img}-images {
+            background-image: url('images/#{$img}.jpg');
+            display: block;
+            width: $w;
+            height: $h;
+        }
+    }
+}
+
+//RWD
+@mixin respond($resp) {
+    @each $viewpoint,
+    $num in $breakpoint {
+        @if $resp==$viewpoint {
+            @media all and (min-width: $num) {
+                @content;
+            }
+        }
+    }
+}
+
+//grid system
+@mixin grid($attr , $num, $pd) {
+    @for $i from 1 through $num {
+       .part-#{$attr}-#{$i}{
+          width: ($i / $num) * 100%;
+          @content;
+       }
+    }
+}
+
+// hover
+@mixin hover {
+    &:hover {
+     @content;
+    }
+   }
+   
+   // button
+   @mixin button($color, $bra, $bgColor,$borderC,$hoverBGC:null, $hoverColor:null) {
+    button {
+        color: $color;
+        border-radius: $bra;
+        background-color: $bgColor;
+        box-shadow: 1px 3px 1px $borderC;
+        cursor: pointer;
+        @content;
+            &:hover{
+        background-color: $hoverBGC;
+        color: $hoverColor;
+        @content;
+        }
+    }
+   }
+
+@mixin border($l, $borderColor){
+    border: $l solid $borderColor;
+}
+
+@mixin stepanime(){
+    
+}

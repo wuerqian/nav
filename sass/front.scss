@@ -1,0 +1,272 @@
+@import "reset";
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #c4e6ef;
+    overflow: hidden;
+}
+
+.cloud{
+    width: 130px;
+    height: 0;
+    animation: cloudTranslate 25S linear 0s infinite;
+    opacity: 0.8;
+    position: relative;
+    top: 20%;
+    left: 0%;
+    filter: drop-shadow(0px 0px 5px #3335) blur(1px);
+}
+
+@for $i from 1 to 6{
+
+    .cloud#{$i}{
+        top: 5 + random(20) + vh;
+        animation-duration: 50s - $i * 3s;
+        animation-delay: $i * -5s;
+        transform: rotate(-30deg) scale(random(7)*0.1+0.1);
+    }
+}
+
+.ball{
+    width: 20px;
+    height: 20px;
+    transform: rotate(0);
+    position: absolute;
+    top: 50%;
+    left: 0%;
+}
+
+@for $i from 1 to 11{
+
+    .ball#{$i}{ 
+        animation: ballTranslate 10S linear 0s infinite;
+        animation-delay: -1s * $i;
+
+        &:after{
+            content: '';
+            width: 90px;
+            height: 90px;
+            border-radius: 40%;
+            background-color: #fff;
+            display: inline-block;
+            transform: translate(0, 50px) rotate(0deg) translate(0, -50px) scale(1);
+            animation: ballRotate 10S linear 0s infinite;
+            animation-delay: -1s * $i;
+        }
+    }
+}
+@keyframes cloudTranslate{
+    0%{
+        left: -20%;    
+    }
+    100%{
+        left: 105%;    
+    }
+}
+@keyframes ballTranslate{
+    50%{
+        left: 100%;
+    }
+    100%{
+        left: 0%;    
+    }
+}
+@keyframes ballRotate{
+    50%{
+        transform: translate(0, 50px) rotate(.5turn) translate(0, -50px) scale(0.8);
+    }
+    100%{
+        transform: translate(0, 50px) rotate(1turn) translate(0, -50px) scale(1); 
+    }
+}
+
+$animation-time: 10s;
+$color-black: #222;
+$color-gray: #736357;
+$color-beige: #EDE4C6;
+$color-red: #E40B12;
+$color-yellow: #FBC926;
+
+svg {
+  display: block;
+  margin: 0 auto;
+  fill: none;
+  stroke: $color-black;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  transform: translate(0 -50%);
+  position: relative;
+  top: 50vh;
+}
+
+.wall {
+  fill: $color-beige;
+}
+
+.windows {
+  .window-red {
+    stroke: $color-red;
+  }
+}
+
+.floor {
+  line {
+    stroke: $color-red;
+  }
+  rect {
+    fill: $color-red;
+  }
+}
+
+.columns {
+  rect {
+    fill: $color-red;
+    width: 10px;
+  }
+}
+
+.balcony {
+}
+
+.roof {
+  fill: $color-gray;
+}
+
+.lamp {
+  &.lamp-yellow {
+    fill: $color-yellow;
+  }
+  &.lamp-red {
+    fill: $color-red;
+  }
+}
+
+/* ANIMATIONS */
+
+@mixin animate-scale-X($selector, $start:0, $duration:10) {
+  $animationName: 'animation-scale-X-#{$start}-#{$duration}';
+  $start: $start * 1%;
+  @keyframes #{$animationName} {
+    from {
+      transform: scaleX(1);
+    }
+    0.1%, #{$start} {
+      transform: scaleX(0);
+    }
+    to, #{$start + $duration} {
+      transform: scaleX(1);
+    }
+  }
+  #{$selector} {
+    animation: #{$animationName} $animation-time alternate both;
+    transform-origin: 50% 0;
+  }
+}
+
+@mixin animate-slide-up($selector, $start:0, $duration:20) {
+  $animationName: 'animation-slide-up-#{$start}-#{$duration}';
+  $start: $start * 1%;
+  @keyframes #{$animationName} {
+    from {
+      transform: translateY(0);
+    }
+    0.1%, #{$start} {
+      transform: translateY(105%);
+    }
+    to, #{$start + $duration} {
+      transform: translateY(0);
+    }
+  }
+  #{$selector} {
+    animation: #{$animationName} $animation-time ease-in alternate both;
+  }
+}
+
+@mixin animate-fall-down($selector, $start:0, $duration:20) {
+  $animationName: 'animation-fall-down-#{$start}-#{$duration}';
+  $start: $start * 1%;
+  @keyframes #{$animationName} {
+    from {
+      transform: translateY(0);
+    }
+    0.1%, #{$start} {
+      transform: translateY(-1000%);
+    }
+    #{$start + $duration} {
+      transform: translateY(0);
+    }
+    #{$start + $duration - 3} {
+      transform: translateY(-2px);
+    }
+    #{$start + $duration - 2} {
+      transform: translateY(0);
+    }
+    #{$start + $duration - 1} {
+      transform: translateY(-1px);
+    }
+    #{$start + $duration - 0}, to {
+      transform: translateY(0);
+    }
+  }
+  #{$selector} {
+    animation: #{$animationName} $animation-time ease-in alternate;
+  }
+}
+
+@mixin animate-grow-down($selector, $start:0, $duration:10) {
+  $animationName: 'animation-grow-down-#{$start}-#{$duration}';
+  $start: $start * 1%;
+  @keyframes #{$animationName} {
+    from {
+      transform: scaleY(1.0) translateY(0);
+    }
+    0.1%, #{$start} {
+      transform: scaleY(0) translateY(-100%);
+    }
+    #{$start + $duration}, to {
+      transform: scaleY(1.0) translateY(0);
+    }
+  }
+  #{$selector} {
+    animation: #{$animationName} $animation-time ease alternate both;
+    transform-origin: 50% top;
+  }
+}
+
+@include animate-scale-X('.base', 5, 10);
+@include animate-slide-up('.windows', 8, 50);
+@include animate-slide-up('.columns', 10, 15);
+@include animate-slide-up('.wall', 20, 20);
+@include animate-fall-down('.floor', 18, 20);
+@include animate-fall-down('.roof', 24, 18);
+@include animate-fall-down('.wall.wall-top', 24, 22);
+@include animate-fall-down('.balcony', 34, 18);
+@include animate-fall-down('.floor.floor-top', 37, 23);
+@include animate-fall-down('.roof.roof-top', 34, 30);
+@include animate-grow-down('.lamp', 60, 5);
+
+
+/* Pendulum */
+
+@keyframes pendulum {
+    0% { transform: rotate( 2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+.animation-pendulum {
+  animation: pendulum 1s ;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  transform-origin: 50% top;
+}
+
+.animation-delayed-1 {
+  animation-delay: .2s;
+}
+
+.animation-delayed-2 {
+  animation-delay: .5s;
+}
