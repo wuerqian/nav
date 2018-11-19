@@ -502,6 +502,18 @@ header {
   .nav_height {
     height: 100px; } }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  opacity: .6; }
+
+::-webkit-scrollbar-thumb {
+  background: #76391B;
+  border-radius: 10px; }
+
+::-webkit-scrollbar-track {
+  background-color: #FCF2CA; }
+
 .image-cutting-contain {
   width: 100%;
   height: 100vh;
@@ -624,18 +636,18 @@ header {
           width: 35px;
           height: 35px;
           border-radius: 50%;
-          background-color: #d4eefb;
+          background-color: #76391B;
           cursor: pointer;
           display: inline-block;
           position: absolute;
           top: 74%;
-          left: 64%; }
+          left: 65%; }
           .member-list-item .member-Pic-box .member-camera:after {
             content: '';
             margin: 4px 0 0 1.5px;
             width: 70%;
             height: 70%;
-            background-image: url(../images/icon/photo_black.svg);
+            background-image: url(../images/icon/photo_white.svg);
             background-size: cover;
             display: inline-block; }
       .member-list-item-contain {
@@ -721,8 +733,8 @@ header {
         .member .member-contain .member-Information .member-content label,
         .member .member-contain .member-Information .change-paw label {
           font-size: 20px;
-          color: #ff5000;
-          font-weight: 500;
+          color: #76391B;
+          font-weight: 700;
           vertical-align: middle;
           display: inline-block; }
         .member .member-contain .member-Information .member-content input,
@@ -771,49 +783,88 @@ header {
       margin-top: 50px; }
       .member .member-contain .member-order .member-order-list > li {
         margin: 20px 0% 50px;
-        padding: 2%;
+        padding: 0 2%;
         width: 96%;
         border-radius: 10px;
-        border: 1px solid #000;
-        background-color: #fcf2ca;
+        border: 3px solid #76391B;
         display: inline-block;
         vertical-align: top; }
         .member .member-contain .member-order .member-order-list > li .ordering-news {
-          margin: -40px 0 10px;
-          padding: 5px 0 0 5px;
-          border: 1px solid #000;
-          border-radius: 10px;
-          background-color: #fff;
-          box-shadow: 2px 2px 1px #ad6631; }
+          margin: -27px auto 30px;
+          padding: 5px 30px 0 0;
+          width: 80%;
+          color: #000;
+          background-color: #FCE444;
+          text-align: center;
+          position: relative; }
+          .member .member-contain .member-order .member-order-list > li .ordering-news:before {
+            content: '';
+            border-width: 27px 0px 27px 20px;
+            border-style: solid;
+            border-color: #FCE444 transparent #FCE444 transparent;
+            top: 0;
+            right: 100%;
+            position: absolute; }
+          .member .member-contain .member-order .member-order-list > li .ordering-news:after {
+            content: '';
+            border-width: 27px 20px 27px 0px;
+            border-style: solid;
+            border-color: #FCE444 transparent #FCE444 transparent;
+            top: 0;
+            left: 100%;
+            position: absolute; }
           .member .member-contain .member-order .member-order-list > li .ordering-news p {
-            padding: 7px 0;
+            width: 50%;
+            max-width: 230px;
             font-size: 16px;
-            line-height: 1.6; }
+            line-height: 3;
+            text-align: center;
+            display: inline-block; }
             .member .member-contain .member-order .member-order-list > li .ordering-news p span {
+              margin-right: 5px;
               font-size: 16px;
+              font-weight: 1000;
               display: inline-block; }
         .member .member-contain .member-order .member-order-list > li .ordering-contain {
           width: 100%;
           overflow: auto; }
           .member .member-contain .member-order .member-order-list > li .ordering-contain ul {
+            margin-bottom: 20px;
             width: 250%;
             max-width: 750px; }
             .member .member-contain .member-order .member-order-list > li .ordering-contain ul li {
-              margin: 10px 1% 30px;
-              padding: 15px 0;
-              width: 18%;
-              max-width: 150px;
-              outline: 1px solid #000;
-              display: inline-block; }
+              margin: 10px;
+              border: 4px solid transparent;
+              border-radius: 20px;
+              width: 150px;
+              height: 170px;
+              background-color: #fff;
+              box-shadow: 0px 0px 10px #aaa;
+              display: inline-block;
+              position: relative;
+              overflow: hidden;
+              cursor: pointer; }
               .member .member-contain .member-order .member-order-list > li .ordering-contain ul li img {
                 margin: 0 5%;
                 width: 90%; }
               .member .member-contain .member-order .member-order-list > li .ordering-contain ul li p {
-                margin: 0 5%;
-                padding: 20px 0 0;
-                width: 90%;
+                margin: 0 2%;
+                padding: 8px 0;
+                border-bottom-right-radius: 10px;
+                border-bottom-left-radius: 10px;
+                width: 96%;
                 font-size: 16px;
-                text-align: center; }
+                text-align: center;
+                background-color: #FCE444; }
+              .member .member-contain .member-order .member-order-list > li .ordering-contain ul li span {
+                padding: 8px;
+                border-radius: 0 0 0 17px;
+                font-size: 16px;
+                color: #fff;
+                background-color: #76391B;
+                position: absolute;
+                top: 0;
+                right: 0; }
     .member .member-contain .member-achievement .member-achievement-list {
       margin-top: 50px; }
       .member .member-contain .member-achievement .member-achievement-list li {
@@ -821,7 +872,7 @@ header {
         padding: 2%;
         width: 92%;
         border-radius: 10px;
-        outline: 1px solid #000;
+        outline: 3px solid #76391B;
         display: inline-block; }
         .member .member-contain .member-achievement .member-achievement-list li .achievement-pic {
           margin-right: 5%;
@@ -840,7 +891,9 @@ header {
           vertical-align: middle; }
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain h3 {
             padding: 5px 0;
-            font-size: 20px; }
+            font-size: 20px;
+            font-weight: 700;
+            color: #FF5000; }
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .meal-count {
             margin: 5px 0;
             padding: 5px 0 15px;
@@ -849,14 +902,15 @@ header {
             border: 1px solid #000;
             border-radius: 15px;
             font-size: 16px;
-            background: linear-gradient(90deg, #fcf2ca 60%, #fff 60%);
-            text-align: center; }
-          .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-info {
-            padding: 5px 0;
-            font-size: 16px; }
+            background: linear-gradient(90deg, #FCE444 0%, #fff 0%);
+            text-align: center;
+            transition: 1s; }
+          .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-info,
           .member .member-contain .member-achievement .member-achievement-list li .achievement-contain .achievement-bonus {
-            padding: 5px 0;
-            font-size: 16px; }
+            padding-top: 5px;
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 700; }
   .member .table-hide {
     height: 80px; }
 
@@ -917,7 +971,7 @@ header {
     .member-list .notebook {
       width: 70px;
       background: url(../images/notebookS.svg);
-      transform: translateX(-34%);
+      transform: translateX(-30%);
       position: absolute;
       top: 0;
       left: 100%;
@@ -948,20 +1002,14 @@ header {
           transition: 0.3s;
           top: 0%;
           left: 5%; }
-    .member .member-contain .member-order .member-order-list > li .ordering-news {
-      text-align: center; }
-      .member .member-contain .member-order .member-order-list > li .ordering-news-box1 {
-        width: 30%;
-        max-width: 180px;
-        display: inline-block;
-        vertical-align: top;
-        text-align: left; }
-      .member .member-contain .member-order .member-order-list > li .ordering-news-box2 {
-        width: 70%;
-        max-width: 300px;
-        display: inline-block;
-        vertical-align: top;
-        text-align: left; }
+    .member .member-contain .member-order .member-order-list > li .ordering-news-box1 {
+      vertical-align: top; }
+    .member .member-contain .member-order .member-order-list > li .ordering-news-box2 {
+      width: 70%;
+      max-width: 300px;
+      display: inline-block;
+      vertical-align: top;
+      text-align: left; }
     .member .member-contain > div h2 {
       padding: 50px; }
   .member .table-hide {

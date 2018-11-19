@@ -29,7 +29,7 @@
 	<div class="member">
 		<div class="member-list">
 			<div class="member-list-item">
-				<form action="fileUpload.php" id="myform" method="post" enctype="multipart/form-data">
+				<form action="#" id="myform" method="post" enctype="multipart/form-data">
 					<label class="member-Pic-box" for="upFile">
 						<!-- <input type="file" id="input" class="sr-only"> -->
 						<input type="file" id="upFile" name="upFile" accept="image/*">
@@ -77,7 +77,7 @@
 				<label for="member-Information-radio">會員資料</label>
 				<label for="member-Order-radio">訂餐紀錄</label>
 				<label for=""><a href="javascript:void(0)">飯團查詢</a></label>
-				<label for="member-Achievement-radio">我的成就</label>
+				<label for="member-Achievement-radio" id="achievement-button">我的成就</label>
 				<label for=""><a href="javascript:void(0)">我的收藏</a></label>
 			</div>
 			<div class="notebook"></div>
@@ -259,13 +259,13 @@
 					<li>
 						<div class="ordering-news">
 							<div class="ordering-news-box1">
-								<p class="memOrder-No">訂單編號　<?php echo $prodRowMemberOrder->memOrder_No ?></p>
-								<p class="memOrder-Amount">訂單金額　$<?php echo $prodRowMemberOrder->memOrder_Amount ?></p>
+								<p class="memOrder-No"><span>訂單編號</span><?php echo $prodRowMemberOrder->memOrder_No ?></p>
+								<p class="memOrder-Amount"><span>訂單金額</span>$<?php echo $prodRowMemberOrder->memOrder_Amount ?></p>
 							</div>
-							<div class="ordering-news-box2">
+							<!-- <div class="ordering-news-box2">
 								<p class="memOrder-Time"><span>下單時間</span>　<span><?php echo $prodRowMemberOrder->memOrder_Time ?></span></p>
 								<p class="memOrder-TakeTime"><span>取餐時間</span>　<span><?php echo $prodRowMemberOrder->memOrder_TakeTime ?></span></p>
-							</div>
+							</div> -->
 						</div>
 						<div class="ordering-contain">
 							<ul>
@@ -291,7 +291,8 @@
 								?>
 								<li>
 									<img src="images/<?php echo $prodRowmemberOrderList->meal_Pic ?>" alt="meal">
-									<p><?php echo $prodRowmemberOrderList->meal_Name ?>＊<?php echo $prodRowmemberOrderList->meal_Quantity ?></p>
+									<p><?php echo $prodRowmemberOrderList->meal_Name ?></p>
+									<span><?php echo $prodRowmemberOrderList->meal_Quantity ?>份</span>
 								</li>
 								<?php
 										}//while
@@ -322,7 +323,7 @@
 					$errMsg = "";
 					try {
 						// require_once("connectBooks.php");
-						$sqlAchievement = "select * from achievement";
+						$sqlAchievement = "select * from achievement where isAchievable = 1";
 						$productsAchievement = $pdo -> query( $sqlAchievement );
 					} catch (PDOException $e) {
 						$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
@@ -337,7 +338,7 @@
 				?>
 					<li>
 						<div class="achievement-pic">
-							<img src="images/Achievement/<?php echo $prodRowAchievement->achievement_Pic ?>" alt="">
+							<img src="images/Achieve/<?php echo $prodRowAchievement->achievement_Pic ?>" alt="">
 						</div>
 						<div class="achievement-contain">
 							<h3><?php echo $prodRowAchievement->achievement_Name ?></h3>
@@ -359,7 +360,32 @@
 
 		<div class="table-hide"></div>
 	</div>
+	<script>
 
+	// 調整顯示訂單菜色的父層大小
+		var orderingContainUl = document.querySelectorAll('.ordering-contain ul');
+
+		for(i=0; i<orderingContainUl.length; i++){
+			
+			childNumber = Math.floor(orderingContainUl[i].childNodes.length/2);
+			orderingContainUl[i].style.width = childNumber * 178 + "px";
+		}
+
+	//調整成就進度條進度
+	// background: linear-gradient(90deg, #fcf2ca 60%, #fff 60%); 
+		document.getElementById('achievement-button').addEventListener("click", function(){
+			var mealCount = document.querySelectorAll('.meal-count');
+
+			for(i=0; i<mealCount.length; i++){
+				percentage = mealCount[i].innerText.split("/")[0] / mealCount[i].innerText.split("/")[1];
+
+				if(percentage>1){percentage=1;}
+
+				mealCount[i].style.background = "linear-gradient(90deg, #FCE444 " + percentage*100 + "%, #fff " + percentage*100 + "%)"; 
+			}
+		})
+	</script>
+	
 	<!-- 分頁 -->
 	<script>
 	
@@ -385,20 +411,25 @@
 
 				for( i = 0 ; i < memberPanelLabel.length; i++){
 					memberPanelLabel[i].style.display = "inline-block";
+					memberPanelLabel[i].style.color = "#76391B";
 				}
 
 				if(memberInformationRadio.checked){
 					memberPanelLabel[0].style.display = "none";
+					memberPanelLabel[0].style.color = "#ff5000";
 				}else if(memberOrderRadio.checked){
 					memberPanelLabel[1].style.display = "none";
+					memberPanelLabel[1].style.color = "#ff5000";
 				}else if(memberAchievementRadio.checked){
 					memberPanelLabel[3].style.display = "none";
+					memberPanelLabel[3].style.color = "#ff5000";
 				}
 
 			}else{
 
 				for( i = 0 ; i < memberPanelLabel.length; i++){
 					memberPanelLabel[i].style.display = "inline-block";
+					memberPanelLabel[i].style.color = "#76391B";
 				}
 			}
 		}
@@ -409,17 +440,20 @@
 
 				for( i = 0 ; i < memberPanelLabel.length; i++){
 					memberPanelLabel[i].style.display = "inline-block";
+					memberPanelLabel[i].style.color = "#76391B";
 				}
 
 				this.style.display = "none";
+				this.style.color = "#ff5000";
 
 			}else{
 
 				for( i = 0 ; i < memberPanelLabel.length; i++){
 					memberPanelLabel[i].style.display = "inline-block";
-					this.style.color = "#fff";
-					this.style.backgroundColor = "#76391B";
+					memberPanelLabel[i].style.color = "#76391B";
 				}
+				
+				this.style.color = "#ff5000";
 			}
 		}
 

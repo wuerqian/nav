@@ -11,7 +11,7 @@
     <title>客服雞後台</title>
 </head>
 <body class="out">
-    <div class="d-flex">
+    <div class="d-flex" name="top">
         <div class="container col-xl-2">
             <div class="list-group back-nav">
                 <div class="back-logo"><img src="images/logo3.png" alt="logo"></div>
@@ -239,8 +239,8 @@
         </div>
     </div>    
   
-    <button type="button" id="BackTop" class="toTop-arrow"></button>
-  
+    <!-- <button type="button" id="BackTop" class="toTop-arrow"></button> -->
+    <a href="#top" class="toTop-arrow"><i class="fas fa-arrow-circle-up"></i></a>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -268,7 +268,7 @@
     </script>
 
 <!-- GoTop -->
-    <script>
+    <!-- <script>
         $(function(){
             $('#BackTop').click(function(){ 
                 $('html,body').animate({scrollTop:0}, 333);
@@ -281,7 +281,7 @@
                 }
             }).scroll();
         });
-    </script>
+    </script> -->
 
 </body>
 </html>

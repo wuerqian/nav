@@ -53,7 +53,7 @@
                     <div class="shopping_message">
                         <span class="taketime">預計等待時間：15分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 1 件</span>
+                            <span class="shopping_number">共 <i class="shopping_number_t">1</i> 件</span>
                             <span class="shopping_sum">總計 NT$200</span>
                             <span>使用購物金</span>
                             <span class="groupon_bonus">NT$ 10</span>
@@ -81,7 +81,7 @@
                     <div class="shopping_message">
                         <span class="taketime">預計等待時間：15分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 1 件</span>
+                            <span class="shopping_number">共 <i class="shopping_number_t">1</i> 件</span>
                             <span class="shopping_sum">總計 NT$200</span>
                             <span>使用購物金</span>
                             <span class="groupon_bonus">NT$ 10</span>
@@ -97,7 +97,7 @@
                 <div class="shopping_completed">
                     <div>
                         <p class="p1">謝謝您的訂購<br class="table_hide">請於現場付款(自取)</p>
-                        <p class="p2" id="order-data" >訂單編號：25<br>下單日期：2018/09/27</p>
+                        <p class="p2" id="order-data" ><span>訂單編號：</span>25<br><span>下單日期：</span>2018/09/27</p>
                         <div class="take_meal_way">
                             <div class="take_meal_qr">
                                 <p>手機上顯示此QRcode來取餐</p>
@@ -121,8 +121,8 @@
     <script src="js/iconCliCK.js"></script>	
     <script src="js/cart_new.js"></script>
     <script>
+        //下單
         document.getElementById("checkout_immediately_button").addEventListener("click", function(){
-            
             
             //取得目前時間
             // var t = new Date();
@@ -181,7 +181,7 @@
             
              //顯示訂單資訊
             orderData = document.getElementById("order-data");
-            orderData.innerHTML = "訂單編號：<?php echo $prodRowMemberOrder->memOrder_No+1 ?><br>下單日期：" + current; 
+            orderData.innerHTML = "<span>訂單編號：</span><?php echo $prodRowMemberOrder->memOrder_No+1 ?><br><span>下單日期：</span>" + current; 
             
              //顯示訂單代碼
             takeMealCode = document.getElementById("take_meal_code");

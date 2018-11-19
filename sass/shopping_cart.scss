@@ -1,4 +1,5 @@
 @import "reset";
+@import "daycookVar";
 @import "general_mixins";
 @import "nav";
 
@@ -40,6 +41,8 @@
 
             span{
                 font-size: 16px;
+                color: #000;
+                font-weight: 1000;
             }
         }
     }
@@ -84,12 +87,14 @@
                     text-align: center;
 
                     tr{
-                        border-bottom: 1px solid #000;
+                        border-bottom: 3px solid #76391B;
 
                         th, td{
                             padding: 25px 0;
                             width: 25%;
-                            font-size: 16px;
+                            font-size: 16px;           
+                            // color: #76391B;
+                            // font-weight: 1000;
                             vertical-align: middle;
 
                             p{
@@ -128,6 +133,7 @@
                         th{
                             padding: 15px 0;
                             color: #fff;
+                            font-weight: 1000;
                             background-color: #76391B;
                             border-bottom: 1px solid #000;
                         }
@@ -141,11 +147,16 @@
                         .number_box{
                             margin: 0 auto;
                             width: 100%;
-                            max-width: 100px;
+                            max-width: 110px;
+                            
+                            .number_value{
+                                line-height: 1.6;
+                            }
 
                             .number_add, .number_cut{
-                                padding: 2px;
-                                font-size: 16px;
+                                padding: 0 2.2px 4px;
+                                font-size: 22px;
+                                // line-height: 1.6;
                                 border: 1px solid #76391B;
                                 border-radius: 50%;
                                 background-color: #fcf2ca;
@@ -183,7 +194,7 @@
                     .shopping_message_box{
                         width: 70%;
                         max-width: 300px;
-                        border-bottom: 1px solid #000;
+                        border-bottom: 3px solid #76391B;
                         display: inline-block;
                         float: right;
 
@@ -246,12 +257,14 @@
 
                     td{
                         &:nth-child(1){
+                            padding-bottom: 0;
                             width: 100%;
                             display: block;
                         }
 
                         &:nth-child(2){
                             width: 100%;
+                            font-weight: normal;
                             display: block;
                         }
                     }
@@ -263,8 +276,9 @@
             vertical-align: top;
 
             > div{
-                border: 1px solid #000;
-               
+                border: 3px solid #76391B;
+                box-shadow: 0px 0px 10px #aaa;
+
                 p{
                     margin: 20px 0;
                     font-size: 16px;
@@ -272,13 +286,21 @@
 
                     &.p1{
                         font-size: 24px;
-                        font-weight: 500;
+                        font-weight: 500; 
+                        color: #76391B;
+                        font-weight: 1000;
                     }
 
                     &.p2{
                         margin: 0 auto;
                         max-width: 168px;
                         text-align: left;
+                    }
+
+                    span{
+                        font-size: 16px;
+                        font-weight: 1000;
+                        line-height: 1.6;
                     }
                 }
 
@@ -296,20 +318,34 @@
                         &.take_meal_qr{
                             margin: 0 auto;
                             padding: 0 0 50px 0;
-                            // border-right: 1px solid #000;
-                            border-bottom: 1px solid #000;                            
+                            border-bottom: 3px solid #76391B;
+                            
+                            p{
+                                color: #76391B;
+                                font-weight: 600;
+                            }
+
+                            #take_meal_qr{
+                                margin: 10px 0;
+                                width: 150px;
+                                height: 150px;
+                            }
                         }
-                        
-                        #take_meal_qr{
-                            margin: 10px 0;
-                            width: 150px;
-                            height: 150px;
-                        }
-                        
-                        #take_meal_code{
-                            margin: 85px auto 0;
-                            max-width: 200px;
-                            border: 1px solid #000;
+     
+                        &.take_meal_code{
+
+                            p:first-child{
+                                color: #76391B;
+                                font-weight: 600;
+                            }
+
+                            #take_meal_code{
+                                margin: 85px auto 0;
+                                padding-bottom: 10px;
+                                max-width: 200px;
+                                color: #f50000;
+                                border-bottom: 3px solid #76391B;
+                            }
                         }
                     }
 
@@ -374,9 +410,8 @@
                         }
 
                         td{
-                            width: 20%;
-
                             &:nth-child(1){
+                                padding: 25px 0;
                                 width: 20%;
                                 display: table-cell;
                             }
@@ -398,7 +433,7 @@
                                 &.take_meal_qr{
                                     margin: 0 auto;
                                     padding: 0;
-                                    border-right: 1px solid #000;
+                                    border-right: 3px solid #76391B;
                                     border-bottom: none;                            
                                 }
                             }

@@ -24,8 +24,8 @@ function doFirst(){
         document.getElementsByClassName('taketime')[1].innerText = "預計等待時間：" + itemTime + "分";
 
         itemSum += parseInt(itemInfo.split('|')[3]);
-        document.getElementsByClassName('shopping_number')[0].innerText = "共 " + itemSum + " 件";
-        document.getElementsByClassName('shopping_number')[1].innerText = "共 " + itemSum + " 件";
+        document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
+        document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
     
         total += parseInt(itemInfo.split('|')[2] * parseInt(itemInfo.split('|')[3]));
         document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
@@ -105,8 +105,8 @@ function doFirst(){
                         total -= parseInt(storage.getItem(itemId).split('|')[2]);
 
                         itemSum -= 1;
-                        document.getElementsByClassName('shopping_number')[0].innerText = "共 " + itemSum + " 件";
-                        document.getElementsByClassName('shopping_number')[1].innerText = "共 " + itemSum + " 件";
+                        document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
+                        document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
                     
                         document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
                         document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
@@ -141,8 +141,8 @@ function doFirst(){
                     total += parseInt(storage.getItem(itemId).split('|')[2]);
                 
                     itemSum += 1;
-                    document.getElementsByClassName('shopping_number')[0].innerText = "共 " + itemSum + " 件";
-                    document.getElementsByClassName('shopping_number')[1].innerText = "共 " + itemSum + " 件";
+                    document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
+                    document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
                 
                     document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
                     document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
@@ -291,8 +291,8 @@ function deleteItem() {
     document.getElementsByClassName('taketime')[1].innerText = "預計等待時間：" + itemTime + "分";
 
     itemSum -= storage.getItem(itemId).split('|')[3];
-    document.getElementsByClassName('shopping_number')[0].innerText = "共 " + itemSum + " 件";
-    document.getElementsByClassName('shopping_number')[1].innerText = "共 " + itemSum + " 件";
+    document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
+    document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
 
     document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
     document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;

@@ -1,0 +1,178 @@
+// @import "daycookMixin";
+@import "daycookVar";
+@import "mixins/general_mixins";
+
+
+
+.out{ 
+    padding: 30px 50px;
+    // height: 100vh;
+    font-family: $fmy;
+
+//共用
+    *{
+        // outline: 1px solid #f00;
+        font-size: $fontSize_text;
+        text-align: center;
+        .modal{
+            .modal-dialog{
+                .modal-content{
+                    border-radius: 10px;
+                    top: 140px;
+                    .modal-img{
+                        width: 30%;
+                        position: absolute;
+                        top: -134px;
+                        right: 35%;
+                        left: 35%;
+                        img{ width: 100%; }
+                    }
+                    // .modal-header{
+                    //     .modal-title{}
+                    //     .close{}
+                    // }
+                    .modal-body{ padding-bottom: 0px; }
+                    .modal-footer{
+                        .mainBTN {
+                            @include btn(100%, light) {
+                                max-width: 30%;
+                                margin-right: 30px;
+                            }
+                        }
+                        .subBTN {
+                            @include btn(100%) {
+                                max-width: 30%;
+                                margin-left: 30px;
+                            }
+                        }
+                        .mainBTN,.subBTN{
+                            height: auto;
+                            padding: 0 10px;
+                            border: 1px solid rgba(0,0,0,.125);
+                            font-weight: bold;
+                            font-size: $fontSize_S;
+                        }          
+                    }
+                }
+            }
+        }
+    
+        .form-group input,.form-group textarea{ text-align: left; }
+        .title-width{ 
+            width: 200px; 
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            margin-bottom: 0;
+        }
+    }
+    a{ 
+        text-decoration: none; 
+        color: $color_main2;
+    }
+    i{ color: $color_main2; }
+    .focus-color{ background-color: $color_main1; }
+
+    .d-flex{
+        height: 100%;
+        .col-xl-2{
+            width: 300px;
+            position: fixed;
+        }
+        .col-xl-10{ margin-left: 300px; }
+        .container{
+//左邊切換列
+            .back-nav{
+                .back-logo{ 
+                    padding-top: 30px;
+                    border: 1px solid rgba(0,0,0,.125); 
+                    border-bottom: none;
+                    border-radius: 10px 10px 0 0;
+                }
+                .back-signout{ 
+                    padding: 50px 0;
+                    border: 1px solid rgba(0,0,0,.125);
+                    border-top: none;
+                    border-radius: 0 0 10px 10px;
+                    font-size: $fontSize_M;
+                    font-weight: bold;
+                    span,a{ 
+                        padding: 20px; 
+                        color: $color_main2;
+                    }
+                }
+                .back-change{
+                    border-radius: 10px;
+                    &:hover{ background-color: $color_main3; }
+                }
+            }
+//右邊資料明細
+            .back-text{
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: 10px;
+                .banner{ 
+                    width: 100%;
+                    height: 25vh;
+                    padding-top: 20px;
+                    border-radius: 10px;
+                    background-image: url("../images/客服G8稜\(改\)-01.svg");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    font-size: $fontSize_L; 
+                    position: relative;
+                    @include main-BTN(80px);
+                    .mainBTN{
+                            margin: 0 20px 20px 93%;
+                            border: 1px solid rgba(0,0,0,.125);
+                            position: absolute;
+                            right: 0;
+                            bottom: 0;
+                            &:active { top: auto; }
+                    }
+                }
+                .table{
+                    thead,tbody{
+                        tr{
+                            th,td{
+                                border-bottom: 1px solid rgba(0,0,0,.125);
+                                vertical-align: middle; 
+                            }
+                        }
+                    }
+                    tbody{
+                        tr{ 
+                            td{
+                                padding: 3px; 
+                                .one-size{ height: 50px; }
+                                i{ cursor: pointer; }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .toTop-arrow{
+        width: 40px;
+        height: 40px;
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        i{
+            color: $color_main1;
+            font-size: $fontSize_XL;
+        }
+    }
+}
+    
+        
+
+
+        
+
+        
+        
+
+
+        
+

@@ -44,6 +44,72 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+button, input[type="button"] {
+  -webkit-appearance: none;
+  /* Safari 和 Chrome，常用於iOS下移除內建樣式 */
+  -moz-appearance: none;
+  /* FireFox */
+  appearance: none; }
+
+.swal-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0; }
+  .swal-content__a {
+    color: #FF5000;
+    text-decoration: none; }
+
+.swal-text {
+  vertical-align: middle; }
+
+.swal-modal {
+  border-radius: 10px;
+  border: 20px solid #FCF2CA; }
+
+.swal-footer {
+  text-align: center; }
+
+.swal-button {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #76391B;
+  background-color: #FCE444;
+  box-shadow: 0px 4px 0px #76391B;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 150px;
+  transition: .2s;
+  line-height: 25px; }
+  .swal-button:hover {
+    opacity: .7;
+    transition: .2s; }
+  .swal-button:active {
+    top: 2px; }
+
+.swal-button-container {
+  margin: auto; }
+
+.swal-button:not([disabled]):hover {
+  background-color: #FCE444; }
+
+.swal-button:active {
+  background-color: #FCE444;
+  top: 2px;
+  box-shadow: 0px 2px 0px #76391B; }
+
+.swal-button:focus {
+  outline: none;
+  box-shadow: 0px 4px 0px #76391B; }
+
 header {
   width: 100%;
   height: 80px;
@@ -463,7 +529,9 @@ header {
           color: #76391b;
           font-weight: 1000; }
       .shopping_step .step_list .step_box span {
-        font-size: 16px; }
+        font-size: 16px;
+        color: #000;
+        font-weight: 1000; }
   .shopping_step .step_contain {
     margin: 0 auto;
     padding: 70px 0;
@@ -491,7 +559,7 @@ header {
           max-width: 1200px;
           text-align: center; }
           .shopping_step .step_contain .step_contain_mask .shopping_details table tr, .shopping_step .step_contain .step_contain_mask .confirm_order table tr {
-            border-bottom: 1px solid #000; }
+            border-bottom: 3px solid #76391B; }
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr th, .shopping_step .step_contain .step_contain_mask .shopping_details table tr td, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th, .shopping_step .step_contain .step_contain_mask .confirm_order table tr td {
               padding: 25px 0;
               width: 25%;
@@ -512,6 +580,7 @@ header {
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr th, .shopping_step .step_contain .step_contain_mask .confirm_order table tr th {
               padding: 15px 0;
               color: #fff;
+              font-weight: 1000;
               background-color: #76391B;
               border-bottom: 1px solid #000; }
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr .product_img, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .product_img {
@@ -521,10 +590,12 @@ header {
             .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box {
               margin: 0 auto;
               width: 100%;
-              max-width: 100px; }
+              max-width: 110px; }
+              .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_value, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_value {
+                line-height: 1.6; }
               .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .shopping_details table tr .number_box .number_cut, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_add, .shopping_step .step_contain .step_contain_mask .confirm_order table tr .number_box .number_cut {
-                padding: 2px;
-                font-size: 16px;
+                padding: 0 2.2px 4px;
+                font-size: 22px;
                 border: 1px solid #76391B;
                 border-radius: 50%;
                 background-color: #fcf2ca;
@@ -546,7 +617,7 @@ header {
           .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message .shopping_message_box, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message .shopping_message_box {
             width: 70%;
             max-width: 300px;
-            border-bottom: 1px solid #000;
+            border-bottom: 3px solid #76391B;
             display: inline-block;
             float: right; }
             .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message .shopping_message_box span, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message .shopping_message_box span {
@@ -585,26 +656,35 @@ header {
           width: 100%;
           display: none; }
         .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
+          padding-bottom: 0;
           width: 100%;
           display: block; }
         .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
           width: 100%;
+          font-weight: normal;
           display: block; }
     .shopping_step .step_contain .shopping_completed {
       vertical-align: top; }
       .shopping_step .step_contain .shopping_completed > div {
-        border: 1px solid #000; }
+        border: 3px solid #76391B;
+        box-shadow: 0px 0px 10px #aaa; }
         .shopping_step .step_contain .shopping_completed > div p {
           margin: 20px 0;
           font-size: 16px;
           line-height: 1.6; }
           .shopping_step .step_contain .shopping_completed > div p.p1 {
             font-size: 24px;
-            font-weight: 500; }
+            font-weight: 500;
+            color: #76391B;
+            font-weight: 1000; }
           .shopping_step .step_contain .shopping_completed > div p.p2 {
             margin: 0 auto;
             max-width: 168px;
             text-align: left; }
+          .shopping_step .step_contain .shopping_completed > div p span {
+            font-size: 16px;
+            font-weight: 1000;
+            line-height: 1.6; }
         .shopping_step .step_contain .shopping_completed > div .take_meal_way {
           padding: 50px 0;
           position: relative; }
@@ -617,15 +697,23 @@ header {
             .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr {
               margin: 0 auto;
               padding: 0 0 50px 0;
-              border-bottom: 1px solid #000; }
-            .shopping_step .step_contain .shopping_completed > div .take_meal_way div #take_meal_qr {
-              margin: 10px 0;
-              width: 150px;
-              height: 150px; }
-            .shopping_step .step_contain .shopping_completed > div .take_meal_way div #take_meal_code {
+              border-bottom: 3px solid #76391B; }
+              .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr p {
+                color: #76391B;
+                font-weight: 600; }
+              .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_qr #take_meal_qr {
+                margin: 10px 0;
+                width: 150px;
+                height: 150px; }
+            .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_code p:first-child {
+              color: #76391B;
+              font-weight: 600; }
+            .shopping_step .step_contain .shopping_completed > div .take_meal_way div.take_meal_code #take_meal_code {
               margin: 85px auto 0;
+              padding-bottom: 10px;
               max-width: 200px;
-              border: 1px solid #000; }
+              color: #f50000;
+              border-bottom: 3px solid #76391B; }
           .shopping_step .step_contain .shopping_completed > div .take_meal_way > p {
             padding: 0 5px;
             background-color: #fff;
@@ -654,20 +742,19 @@ header {
     .shopping_step .step_contain .step_contain_mask .shopping_details table tr th:nth-child(2) {
       width: 20%;
       display: table-cell; }
-  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td {
-    width: 20%; }
-    .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
-      width: 20%;
-      display: table-cell; }
-    .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
-      width: 20%;
-      display: table-cell; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(1) {
+    padding: 25px 0;
+    width: 20%;
+    display: table-cell; }
+  .shopping_step .step_contain .step_contain_mask .shopping_details table tr td:nth-child(2) {
+    width: 20%;
+    display: table-cell; }
   .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way div {
     display: inline-block; }
     .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way div.take_meal_qr {
       margin: 0 auto;
       padding: 0;
-      border-right: 1px solid #000;
+      border-right: 3px solid #76391B;
       border-bottom: none; }
   .shopping_step .step_contain .step_contain_mask .shopping_completed > div .take_meal_way > p {
     padding: 5px 0;
