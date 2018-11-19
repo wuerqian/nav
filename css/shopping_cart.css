@@ -744,7 +744,7 @@ header {
             font-weight: 1000; }
           .shopping_step .step_contain .shopping_completed > div p.p2 {
             margin: 0 auto;
-            max-width: 168px;
+            max-width: 230px;
             text-align: left; }
           .shopping_step .step_contain .shopping_completed > div p span {
             font-size: 16px;
@@ -835,7 +835,7 @@ header {
     .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_message span strong, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_message span strong {
       font-size: 20px; }
   .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .shopping_details .shopping_choose .subBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .mainBTN, .shopping_step .step_contain .step_contain_mask .confirm_order .shopping_choose .subBTN {
-    padding: 10px 30px;
+    padding: 0px 30px;
     font-size: 20px; }
   .shopping_step .step_contain .step_contain_mask .shopping_details table tr th {
     width: 20%; }
