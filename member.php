@@ -9,6 +9,8 @@
 	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdn.bootcss.com/cropper/3.1.3/cropper.min.js"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.0.0.js "></script>
+ 	<script src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script>
 	<!-- <script src="js/jquery-3.3.1.min.js"></script> -->
 </head>
 <body onresize="myFunction()">
@@ -29,7 +31,7 @@
 	<div class="member">
 		<div class="member-list">
 			<div class="member-list-item">
-				<form action="#" id="myform" method="post" enctype="multipart/form-data">
+				<!-- <form action="#" id="myform" method="post" enctype="multipart/form-data"> -->
 					<label class="member-Pic-box" for="upFile">
 						<!-- <input type="file" id="input" class="sr-only"> -->
 						<input type="file" id="upFile" name="upFile" accept="image/*">
@@ -37,7 +39,9 @@
 						<span class="member-camera"></span>
 					</label>
 					<button type="submit" class="subBTN" id="subBTN-pic">修改頭像</button>
-				</form>
+					<!-- <img id="ee" src="" alt=""> -->
+					<!-- <a id="eee" href="" style="font-size: 16px">123</a> -->
+				<!-- </form> -->
 				<p class="member-list-item-contain">
 					<span>  
 						<img src="images/icon/user_black.svg" alt="member-Id" title="帳號" class="mem-icon">
@@ -54,24 +58,36 @@
 				</p>
 			</div>
 			<script>
-				document.getElementById("subBTN-pic").addEventListener('click',function(){
-					//=====使用Ajax,更新登入者頭像
-					var xhr = new XMLHttpRequest();
-					// alert(document.getElementById("member-Pic").src);
-					xhr.onload = function (){
-						if( xhr.status == 200){
-							// alert("會員頭像修改成功");
-							swal("會員頭像修改成功", "", "success");
-						}else{
-							alert(xhr.status);
-						}
-					}
-					xhr.open("post", "memberPicUpdate.php", true);
-					xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-					var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
-					// alert(data_info);
-					xhr.send(data_info);
-				});
+				// document.getElementById("subBTN-pic").addEventListener('click',function(){
+				// 	//=====使用Ajax,更新登入者頭像
+				// 	var xhr = new XMLHttpRequest();
+				// 	// alert(document.getElementById("member-Pic").src);
+				// 	xhr.onload = function (){
+				// 		if( xhr.status == 200){
+				// 			// alert("會員頭像修改成功");
+				// 			swal("會員頭像修改成功", "", "success");
+				// 		}else{
+				// 			alert(xhr.status);
+				// 		}
+				// 	}
+				// 	xhr.open("post", "memberPicUpdate.php", true);
+				// 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+				// 	var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
+				// 	// alert(data_info);
+				// 	xhr.send(data_info);
+				// });
+
+
+				// $("#subBTN-pic").click(function() {
+				// 	html2canvas($("#member-Pic")[0]).then(function(canvas) {
+				// 		// var $div = $("fieldset div");
+				// 		// $div.empty();
+				// 		// $("<img />", { src: canvas.toDataURL("image/png") }).appendTo($div);
+				// 		$("#ee").attr('src', canvas.toDataURL("image/png"));
+				// 		$("#eee").attr('href', canvas.toDataURL("image/png"));
+				// 		$("#eee").attr('download','download.png');
+				// 	});
+				// });
 			</script>
 			<div class="member-panel">	
 				<label for="member-Information-radio">會員資料</label>
@@ -87,13 +103,12 @@
 			
 			<input type="radio" name="member-panel-radio" id="member-Information-radio" checked>	
 			<div class="member-Information">
-
-				<h2>
 				<!-- 基本資料 -->
-					<img src="images/member-data-img.svg" alt="基本資料">
-				</h2>
-					<table class="member-content">
-						<tr>
+				<table class="member-content">
+					<h2>
+						<img src="images/member-data-img.svg" alt="基本資料">
+					</h2>
+					<tr>
 							<td><label for="member-nickname">暱稱</label></td>
 							<td>
 								<input type="text" id="member-nickname" name="nickname" name="fname" value=<?php echo $memRow->member_Nick ?>>
@@ -145,11 +160,11 @@
 						window.history.go(0);//重新整理頁面
 					});
 				</script>
-				<h2>
-				<!-- 密碼修改 -->
-				<img src="images/member-paw-img.svg" alt="基本資料">
-				</h2>
+					<!-- 密碼修改 -->
 					<table class="change-paw">
+						<h2>
+							<img src="images/member-paw-img.svg" alt="基本資料">
+						</h2>
 						<tr>
 							<td><label for="old-paw">舊密碼</label></td>
 							<td>
@@ -318,6 +333,7 @@
 					<li><button class="subBTN">已達成</button></li>
 					<li><button class="subBTN">尚未達成</button></li>
 				</ul> -->
+				<p class="current-achievement">目前已訂購: <span><?php echo $memRow->member_buyCount ?></span> 道菜</p>
 				<ul class="member-achievement-list">
 				<?php 
 					$errMsg = "";
@@ -342,12 +358,12 @@
 						</div>
 						<div class="achievement-contain">
 							<h3><?php echo $prodRowAchievement->achievement_Name ?></h3>
-							<div class="meal-count">
+							<!-- <div class="meal-count">
 								<?php echo $memRow->member_buyCount ?>/
 								<?php echo $prodRowAchievement->meal_Total ?>
-							</div>
-							<p class="achievement-info">完成訂購<?php echo $prodRowAchievement->meal_Total ?>道菜</p>
-							<p class="achievement-bonus">獎勵：<?php echo $prodRowAchievement->achievement_Bonus ?>元折價券＊1</p>
+							</div> -->
+							<p class="achievement-info">目標：完成訂購<?php echo $prodRowAchievement->meal_Total ?>道菜</p>
+							<mark class="achievement-bonus">獎勵：<?php echo $prodRowAchievement->achievement_Bonus ?>元折價券＊1</mark>
 						</div>
 					</li>
 				<?php
@@ -373,17 +389,17 @@
 
 	//調整成就進度條進度
 	// background: linear-gradient(90deg, #fcf2ca 60%, #fff 60%); 
-		document.getElementById('achievement-button').addEventListener("click", function(){
-			var mealCount = document.querySelectorAll('.meal-count');
+		// document.getElementById('achievement-button').addEventListener("click", function(){
+		// 	var mealCount = document.querySelectorAll('.meal-count');
 
-			for(i=0; i<mealCount.length; i++){
-				percentage = mealCount[i].innerText.split("/")[0] / mealCount[i].innerText.split("/")[1];
+		// 	for(i=0; i<mealCount.length; i++){
+		// 		percentage = mealCount[i].innerText.split("/")[0] / mealCount[i].innerText.split("/")[1];
 
-				if(percentage>1){percentage=1;}
+		// 		if(percentage>1){percentage=1;}
 
-				mealCount[i].style.background = "linear-gradient(90deg, #FCE444 " + percentage*100 + "%, #fff " + percentage*100 + "%)"; 
-			}
-		})
+		// 		mealCount[i].style.background = "linear-gradient(90deg, #FCE444 " + percentage*100 + "%, #fff " + percentage*100 + "%)"; 
+		// 	}
+		// })
 	</script>
 	
 	<!-- 分頁 -->

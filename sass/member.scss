@@ -73,13 +73,18 @@
 }
 
 .member{
-    margin: 70px auto;
+    margin: 30px auto;
     width: 98%;
     max-width: 1200px;
     // border-radius: 10px;
     // background-color: $color_main3;	
     font-size: 0;
     
+    mark{
+        background: linear-gradient(transparent 40%, rgba(255, 255, 255, 0) 40%, #FFF176 70%, transparent 95%);
+        padding: 2px 1px;
+    }
+
     *{
         font-size: 0;
         font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei" ;
@@ -448,7 +453,7 @@
                                 display: inline-block;
                                 position: relative;
                                 overflow: hidden;
-                                cursor: pointer;
+                                // cursor: pointer;
 
                                 img{
                                     margin: 0 5%;
@@ -484,15 +489,27 @@
         }
         
         .member-achievement{
+            .current-achievement{
+                font-size: 24px;
+                color: #76391B;
+                text-align: center;
+                font-weight: 700;
+
+                span{
+                    font-size: 24px;    
+                    color: #FF5000;
+                }
+            }
+
             .member-achievement-list{
                 margin-top: 50px;
 
                 li{
-                    margin: 10px 2%;
-                    padding: 2%;
+                    margin: 10px 1% 20px;
+                    padding: 1%;
                     width: 92%;
+                    border: 3px solid #76391B;
                     border-radius: 10px;
-                    outline: 3px solid #76391B;
                     display: inline-block;
                 
                     .achievement-pic{
@@ -525,25 +542,29 @@
                             color: #FF5000;
                         }
 
-                        .meal-count{
-                            margin: 5px 0;
-                            padding: 5px 0 15px;
-                            width: 90%;
-                            height: 5px;
-                            border: 1px solid #000;
-                            border-radius: 15px;  
-                            font-size: 16px;
-                            background: linear-gradient(90deg, #FCE444  0%, #fff 0%); 
-                            text-align: center;
-                            transition: 1s;
-                        }
+                        // .meal-count{
+                        //     margin: 5px 0;
+                        //     padding: 5px 0 15px;
+                        //     width: 90%;
+                        //     height: 5px;
+                        //     border: 1px solid #000;
+                        //     border-radius: 15px;  
+                        //     font-size: 16px;
+                        //     background: linear-gradient(90deg, #FCE444  0%, #fff 0%); 
+                        //     text-align: center;
+                        //     transition: 1s;
+                        // }
                       
                         .achievement-info,
                         .achievement-bonus{
-                            padding-top: 5px;
+                            padding: 2px 1px;
                             font-size: 16px;
-                            line-height: 1.6;
+                            line-height: 2;
                             font-weight: 700;
+                        }
+
+                        .achievement-bonus{
+                            border-radius: 10px;
                         }
                     }
                 }
@@ -626,7 +647,7 @@
                 margin-left: 0;
                 background-color: transparent;
                 position: static;
-                padding-top: 80px;
+                padding-top: 30px;
                 
                 label{
                     width: 100%; 
@@ -653,6 +674,7 @@
         .member-contain{
             margin: 20px 0 0 2%;
             width: 68%;
+            min-height: 716px;
             display: inline-block;
 
             .member-Information{
@@ -734,7 +756,7 @@
             .member-achievement{
                 .member-achievement-list{
                     li{
-                        width: 42%;
+                        width: 45%;
                     }
                 }
             }

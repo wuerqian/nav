@@ -1,7 +1,7 @@
 <?php
 	switch( $_FILES["upFile"]['error']){
 		case UPLOAD_ERR_OK : 
-			$dir = "images/achievement/";
+			$dir = "images/achieve/";
 			if( file_exists($dir) == false){
 				mkdir($dir);
 			}

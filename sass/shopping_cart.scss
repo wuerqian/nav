@@ -30,7 +30,7 @@
                 margin-bottom: 20px;
                 padding: 25px 0;
                 border-radius: 50%;
-                border: 1px solid #000; 
+                // border: 1px solid #000; 
                 background-color: #fcf2ca;
                 box-shadow: 1px 3px 1px #ad6631;
 
@@ -394,11 +394,14 @@
 @media screen and (min-width: 768px){
 
     .shopping_step{
-
         .step_list{
             .step_box{
                 width: 110px;
-               
+                
+                span{
+                    font-size: 20px;
+                }
+
                 div{
                     padding: 42px 0;
 
@@ -410,7 +413,52 @@
         }
 
         .step_contain{
-            .step_contain_mask{                      
+            .step_contain_mask{            
+
+                .shopping_details, .confirm_order{
+                    table{
+                        tr{
+                            th, td{
+                                font-size: 20px;           
+    
+                                p{
+                                    span{
+                                        font-size: 20px;
+                                    }
+                                }
+                            }
+                            
+                            .number_box{
+                                .number_add, .number_cut{
+                                    font-size: 24px;
+                                }
+    
+                                .number_value{
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                    }
+    
+                    .shopping_message{
+                        span{
+                            font-size: 20px;
+    
+                            strong{
+                                font-size: 20px;
+                            }
+    
+                        }
+                    }
+    
+                    .shopping_choose{
+                        .mainBTN, .subBTN{
+                            padding: 10px 30px;
+                            font-size: 20px;
+                        }
+                    }    
+                }
+            
                 .shopping_details{
                     table tr{
                         th{
@@ -436,30 +484,47 @@
                         }
                     }
                 }
-
-                .shopping_completed{        
-                    > div{     
-                        .take_meal_way{
-                            div{
-                                display: inline-block;
-                                
-                                &.take_meal_qr{
-                                    margin: 0 auto;
-                                    padding: 0;
-                                    border-right: 3px solid #76391B;
-                                    border-bottom: none;                            
-                                }
+                
+                .shopping_completed{
+                    > div{
+                        p{
+                            font-size: 20px;
+        
+                            &.p1{
+                                font-size: 28px;
                             }
         
-                            > p{
-                                padding: 5px 0;
-                                transform: translate(-50%, -50%); 
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
+                            span{
+                                font-size: 20px;
                             }
                         }
+        
+                        .mainBTN, .subBTN{
+                            font-size: 20px;
+                        }
                     }
+
+                    .take_meal_way{
+                        div{
+                            display: inline-block;
+                            
+                            &.take_meal_qr{
+                                margin: 0 auto;
+                                padding: 0;
+                                border-right: 3px solid #76391B;
+                                border-bottom: none;                            
+                            }
+                        }
+
+                        > p{
+                            padding: 5px 0;
+                            transform: translate(-50%, -50%); 
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                        }
+                    }
+                    
                 }
             }
         }
@@ -469,5 +534,11 @@
         }
     }
 }
+
+
+
+
+
+
 
 
