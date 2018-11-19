@@ -4,6 +4,7 @@
 @import "nav";
 
 .shopping_step{
+
     margin: 0 auto;
     padding-top: 100px;
     text-align: center;
@@ -153,17 +154,15 @@
                                 line-height: 1.6;
                             }
 
-                            .number_add, .number_cut{
-                                padding: 0 2.2px 4px;
-                                font-size: 22px;
-                                // line-height: 1.6;
-                                border: 1px solid #76391B;
-                                border-radius: 50%;
-                                background-color: #fcf2ca;
-                                cursor: pointer;
-                                display: inline-block;
-                            }
+                            @include plusAndMinus-BTN;
 
+                            .number_add, .number_cut{
+                                width: 25px;
+                                height: 25px;
+                                font-size: 20px;
+                                line-height: 23px;
+                            }
+                        
                             .number_cut{
                                 float: left;
                             }
@@ -184,6 +183,14 @@
 
                     span{
                         font-size: 16px;
+                        color: #76391B;
+                        font-weight: 1000;
+
+                        strong{
+                            font-size: 16px;
+                            color: #ff5000;
+                        }
+
                     }
                     
                     .taketime{
@@ -226,15 +233,13 @@
                     max-width: 500px;
                     text-align: right;
 
-                    button{
-                        padding: 8px 25px 10px;
-                        border: 1px solid #76391B;
-                        border-radius: 20px;
+                    @include main-BTN(auto);
+                    @include sub-BTN(auto);
+
+                    .mainBTN, .subBTN{
+                        width: auto;
+                        padding: 0px 25px;
                         font-size: 16px;
-                        color: #76391B;
-                        background-color: #fcf2ca;
-                        box-shadow: 1px 3px 1px #ad6631;
-                        cursor: pointer;
                         
                         &:first-child{
                             float: left;
@@ -266,6 +271,17 @@
                             width: 100%;
                             font-weight: normal;
                             display: block;
+                            font-weight: 1000;
+                        }
+                    }
+                }
+            }
+
+            .confirm_order{
+                table tr{
+                    td{
+                        &:nth-child(2){
+                            font-weight: 1000;
                         }
                     }
                 }
@@ -362,16 +378,13 @@
                     }
                 }
 
-                #order_record_button{               
+                @include sub-BTN(auto);
+
+                .mainBTN, .subBTN{
                     margin-bottom: 30px;
-                    padding: 8px 25px 10px;
-                    border: 1px solid #76391B;
-                    border-radius: 20px;
+                    padding: 0px 25px 2px;
+                    width: auto;
                     font-size: 16px;
-                    color: #76391B;
-                    background-color: #fcf2ca;
-                    box-shadow: 1px 3px 1px #ad6631;
-                    cursor: pointer;
                 }
             }
         }

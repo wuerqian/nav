@@ -60,25 +60,25 @@ body {
   filter: drop-shadow(0px 0px 5px #3335) blur(1px); }
 
 .cloud1 {
-  top: 16vh;
+  top: 25vh;
   animation-duration: 47s;
   animation-delay: -5s;
-  transform: rotate(-30deg) scale(0.5); }
+  transform: rotate(-30deg) scale(0.4); }
 
 .cloud2 {
-  top: 25vh;
+  top: 24vh;
   animation-duration: 44s;
   animation-delay: -10s;
   transform: rotate(-30deg) scale(0.5); }
 
 .cloud3 {
-  top: 17vh;
+  top: 22vh;
   animation-duration: 41s;
   animation-delay: -15s;
-  transform: rotate(-30deg) scale(0.7); }
+  transform: rotate(-30deg) scale(0.8); }
 
 .cloud4 {
-  top: 16vh;
+  top: 12vh;
   animation-duration: 38s;
   animation-delay: -20s;
   transform: rotate(-30deg) scale(0.6); }
@@ -87,7 +87,7 @@ body {
   top: 19vh;
   animation-duration: 35s;
   animation-delay: -25s;
-  transform: rotate(-30deg) scale(0.8); }
+  transform: rotate(-30deg) scale(0.7); }
 
 .ball {
   width: 20px;

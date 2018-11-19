@@ -20,23 +20,23 @@ function doFirst(){
         createCartList(itemArray[i], itemInfo);
 
         itemTime += 15;
-        document.getElementsByClassName('taketime')[0].innerText = "預計等待時間：" + itemTime + "分";
-        document.getElementsByClassName('taketime')[1].innerText = "預計等待時間：" + itemTime + "分";
+        document.getElementsByClassName('taketime_t')[0].innerText = itemTime;
+        document.getElementsByClassName('taketime_t')[1].innerText = itemTime;
 
         itemSum += parseInt(itemInfo.split('|')[3]);
         document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
         document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
     
         total += parseInt(itemInfo.split('|')[2] * parseInt(itemInfo.split('|')[3]));
-        document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
-        document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
+        document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
+        document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
 
         Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
-        document.getElementsByClassName('groupon_bonus')[0].innerText = "NT$ " + Bonus;
-        document.getElementsByClassName('groupon_bonus')[1].innerText = "NT$ " + Bonus;
+        document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
+        document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
 
-        document.getElementsByClassName('memOrder_amount')[0].innerText = "結帳金額 NT$ " + (total - Bonus);
-        document.getElementsByClassName('memOrder_amount')[1].innerText = "結帳金額 NT$ " + (total - Bonus); 
+        document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
+        document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
  
         mealQuantity_list += itemInfo.split('|')[3] + "," ; //餐點數量
     }
@@ -45,7 +45,7 @@ function doFirst(){
         
         itemTitle = itemInfo.split('|')[0];
         itemPic =  "images/" + itemInfo.split('|')[1];
-        itemPrice = "NT$" + parseInt(itemInfo.split('|')[2]);
+        itemPrice = "NT$ " + parseInt(itemInfo.split('|')[2]);
         itemNumber = parseInt(itemInfo.split('|')[3]);
 
         isok = true; //是否為第一步
@@ -93,7 +93,7 @@ function doFirst(){
 
                 var numberCut = document.createElement('span'); //減少按鈕 
                 numberCut.innerText = '－';
-                numberCut.className = 'number_cut';
+                numberCut.className = 'number_cut plusAndMinus';
                 numberCut.id = item;
                 numberBox.appendChild(numberCut);
     
@@ -108,15 +108,15 @@ function doFirst(){
                         document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
                         document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
                     
-                        document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
-                        document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
+                        document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
+                        document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
                     
                         Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
-                        document.getElementsByClassName('groupon_bonus')[0].innerText = "NT$ " + Bonus;
-                        document.getElementsByClassName('groupon_bonus')[1].innerText = "NT$ " + Bonus;
+                        document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
+                        document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
 
-                        document.getElementsByClassName('memOrder_amount')[0].innerText = "結帳金額 NT$ " + (total - Bonus);
-                        document.getElementsByClassName('memOrder_amount')[1].innerText = "結帳金額 NT$ " + (total - Bonus); 
+                        document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
+                        document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
                 
                         storage[itemId] = storage.getItem(itemId).split('|')[0] + "|" +
                                           storage.getItem(itemId).split('|')[1] + "|" +
@@ -130,7 +130,7 @@ function doFirst(){
 
                 var numberAdd = document.createElement('span'); //增加按鈕 
                 numberAdd.innerText = '＋';
-                numberAdd.className = 'number_add';
+                numberAdd.className = 'number_add plusAndMinus';
                 numberAdd.id = item;
                 numberBox.appendChild(numberAdd);
     
@@ -144,15 +144,15 @@ function doFirst(){
                     document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
                     document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
                 
-                    document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
-                    document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
+                    document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
+                    document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
 
                     Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
-                    document.getElementsByClassName('groupon_bonus')[0].innerText = "NT$ " + Bonus;
-                    document.getElementsByClassName('groupon_bonus')[1].innerText = "NT$ " + Bonus;
+                    document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
+                    document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
 
-                    document.getElementsByClassName('memOrder_amount')[0].innerText = "結帳金額 NT$ " + (total - Bonus);
-                    document.getElementsByClassName('memOrder_amount')[1].innerText = "結帳金額 NT$ " + (total - Bonus); 
+                    document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
+                    document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
                                     
                     storage[itemId] = storage.getItem(itemId).split('|')[0] + "|" +
                                       storage.getItem(itemId).split('|')[1] + "|" +
@@ -287,22 +287,22 @@ function deleteItem() {
     total -= storage.getItem(itemId).split('|')[2] * storage.getItem(itemId).split('|')[3];
 
     itemTime -= 15;
-    document.getElementsByClassName('taketime')[0].innerText = "預計等待時間：" + itemTime + "分";
-    document.getElementsByClassName('taketime')[1].innerText = "預計等待時間：" + itemTime + "分";
+    document.getElementsByClassName('taketime_t')[0].innerText = itemTime;
+    document.getElementsByClassName('taketime_t')[1].innerText = itemTime;
 
     itemSum -= storage.getItem(itemId).split('|')[3];
     document.getElementsByClassName('shopping_number_t')[0].innerText = itemSum;
     document.getElementsByClassName('shopping_number_t')[1].innerText = itemSum;
 
-    document.getElementsByClassName('shopping_sum')[0].innerText = "NT$ " + total;
-    document.getElementsByClassName('shopping_sum')[1].innerText = "NT$ " + total;
+    document.getElementsByClassName('shopping_sum_t')[0].innerText = "NT$ " + total;
+    document.getElementsByClassName('shopping_sum_t')[1].innerText = "NT$ " + total;
 
     Bonus = memberBonus > total*0.2 ? total*0.2 : memberBonus; 
-    document.getElementsByClassName('groupon_bonus')[0].innerText = "NT$ " + Bonus;
-    document.getElementsByClassName('groupon_bonus')[1].innerText = "NT$ " + Bonus;
+    document.getElementsByClassName('groupon_bonus_t')[0].innerText = "NT$ " + Bonus;
+    document.getElementsByClassName('groupon_bonus_t')[1].innerText = "NT$ " + Bonus;
 
-    document.getElementsByClassName('memOrder_amount')[0].innerText = "結帳金額 NT$ " + (total - Bonus);
-    document.getElementsByClassName('memOrder_amount')[1].innerText = "結帳金額 NT$ " + (total - Bonus); 
+    document.getElementsByClassName('memOrder_amount_t')[0].innerText = "NT$ " + (total - Bonus);
+    document.getElementsByClassName('memOrder_amount_t')[1].innerText = "NT$ " + (total - Bonus); 
         
     storage.removeItem(itemId);
     storage['addItemList'] = storage.getItem('addItemList').replace(itemId + ',', '');

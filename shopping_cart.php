@@ -51,19 +51,19 @@
                     <table class="shopping_list">
                     </table>
                     <div class="shopping_message">
-                        <span class="taketime">預計等待時間：15分</span>
+                        <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 <i class="shopping_number_t">1</i> 件</span>
-                            <span class="shopping_sum">總計 NT$200</span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
+                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
                             <span>使用購物金</span>
-                            <span class="groupon_bonus">NT$ 10</span>
+                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
                             <input type="hidden" value="<?php echo $memRow->member_Bonus ?>" id="groupon_bonus_hidden">
                         </div>
-                        <span class="memOrder_amount">結帳金額 NT$200</span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
                     </div>
                     <div class="shopping_choose">
-                        <button class="continue_shopping_button">繼續購物</button>
-                        <button id="shopping_Next_button">下一步</button>
+                        <button class="continue_shopping_button mainBTN">繼續購物</button>
+                        <button class="subBTN" id="shopping_Next_button">下一步</button>
                     </div>                   
                 </div>
                 
@@ -79,18 +79,18 @@
                     <table class="shopping_list">
                     </table>
                     <div class="shopping_message">
-                        <span class="taketime">預計等待時間：15分</span>
+                        <span class="taketime">預計等待時間：<strong class="taketime_t">15</strong>分</span>
                         <div class="shopping_message_box">
-                            <span class="shopping_number">共 <i class="shopping_number_t">1</i> 件</span>
-                            <span class="shopping_sum">總計 NT$200</span>
+                            <span class="shopping_number">共 <strong class="shopping_number_t">1</strong> 件</span>
+                            <span class="shopping_sum">總計 <strong class="shopping_sum_t">NT$200</strong></span>
                             <span>使用購物金</span>
-                            <span class="groupon_bonus">NT$ 10</span>
+                            <span class="groupon_bonus"><strong class="groupon_bonus_t">NT$10</strong></span>
                         </div>
-                        <span class="memOrder_amount">結帳金額 NT$200</span>
+                        <span class="memOrder_amount">結帳金額 <strong class="memOrder_amount_t">NT$200</strong></span>
                     </div>
                     <div class="shopping_choose">
-                        <button class="continue_shopping_button" id="shopping_pre_button">上一步</button>
-                        <button id="checkout_immediately_button">立即結帳</button>
+                        <button class="continue_shopping_button mainBTN" id="shopping_pre_button">上一步</button>
+                        <button class="subBTN" id="checkout_immediately_button">立即結帳</button>
                     </div>  
                 </div>
                 
@@ -110,7 +110,7 @@
                                 <p id="take_meal_code">Meal0020239</p>
                             </div>
                         </div>
-                        <button id="order_record_button">查看訂購記錄</button>
+                        <button id="order_record_button" class="subBTN">查看訂購記錄</button>
                     </div>
                 </div>
             </div>
