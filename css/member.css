@@ -721,6 +721,8 @@ header {
         .member .member-contain .member-Information .member-content label,
         .member .member-contain .member-Information .change-paw label {
           font-size: 20px;
+          color: #ff5000;
+          font-weight: 500;
           vertical-align: middle;
           display: inline-block; }
         .member .member-contain .member-Information .member-content input,

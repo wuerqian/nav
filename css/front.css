@@ -60,34 +60,34 @@ body {
   filter: drop-shadow(0px 0px 5px #3335) blur(1px); }
 
 .cloud1 {
-  top: 15vh;
+  top: 16vh;
   animation-duration: 47s;
   animation-delay: -5s;
-  transform: rotate(-30deg) scale(0.7); }
+  transform: rotate(-30deg) scale(0.5); }
 
 .cloud2 {
-  top: 9vh;
+  top: 20vh;
   animation-duration: 44s;
   animation-delay: -10s;
-  transform: rotate(-30deg) scale(0.4); }
+  transform: rotate(-30deg) scale(0.6); }
 
 .cloud3 {
-  top: 9vh;
+  top: 17vh;
   animation-duration: 41s;
   animation-delay: -15s;
-  transform: rotate(-30deg) scale(0.5); }
+  transform: rotate(-30deg) scale(0.6); }
 
 .cloud4 {
   top: 17vh;
   animation-duration: 38s;
   animation-delay: -20s;
-  transform: rotate(-30deg) scale(0.4); }
+  transform: rotate(-30deg) scale(0.5); }
 
 .cloud5 {
-  top: 18vh;
+  top: 23vh;
   animation-duration: 35s;
   animation-delay: -25s;
-  transform: rotate(-30deg) scale(0.3); }
+  transform: rotate(-30deg) scale(0.2); }
 
 .ball {
   width: 20px;
