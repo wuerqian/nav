@@ -96,9 +96,26 @@
                     border-radius: 0 0 10px 10px;
                     font-size: $fontSize_M;
                     font-weight: bold;
-                    span,a{ 
-                        padding: 20px; 
+                    
+                    span{ 
+                        padding: 20px;
+                        font-size: 24px; 
                         color: $color_main2;
+                    }
+
+                    form{
+                        display: inline-block;
+                    }
+
+                    @include main-BTN(100px);
+                    .mainBTN{
+                            padding: 0 15px;
+                            border: 1px solid rgba(0,0,0,.125);
+                            font-size: 16px;
+                            // position: absolute;
+                            // right: 0;
+                            // bottom: 0;
+                            // &:active { top: auto; }
                     }
                 }
                 .back-change{

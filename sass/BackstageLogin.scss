@@ -1,0 +1,19 @@
+@import "reset";
+@import "daycookVar";
+@import "daycookMixin";
+@import "general_mixins";
+@import "Team-mixins/ke_mixin.scss";
+@import "login";
+
+#close-login:checked ~ #login-wrap{
+    display: block;
+
+}
+
+.login-mark label {
+    width: 100%;
+}
+
+.login-wrap {
+    overflow-y: hidden;
+}

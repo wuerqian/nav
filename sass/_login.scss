@@ -1,0 +1,307 @@
+// html, body {
+//     overflow-x: hidden;
+//     overflow-y: hidden;
+// }
+
+// 以下是動畫區
+#close-login {
+    //將導覽列的登入註冊input隱藏
+    display: none;
+  }
+  .to-sigin,
+  .to-sigup,
+  .to-get-Psw {
+    //將跳窗內的input隱藏
+    display: none;
+  }
+  #to-sigin:checked ~ .to-sigin,
+  #to-sigup:checked ~ .to-sigup,
+  #to-get-Psw:checked ~ .to-get-Psw {
+    //登入註冊換頁按鈕
+    display: block;
+  }
+  // color: #FED44F;
+  // /* border-bottom: 10px solid #FED44F; */
+  // transition: 0.4s;
+  // text-shadow: 1px 1px 1px #BB7232;
+  // /* font-size: 48px; */
+  // transform: scale(1.2);
+  
+  #to-sigin:checked ~ .login-mark .sig-in,
+  #to-sigup:checked ~ .login-mark .sig-up {
+    //頁籤的粗底線
+    color: $color_txt;
+    border-bottom: 10px solid $color-bonus;
+    transition: 0.4s;
+  }
+  
+  #close-login:checked ~ #login-wrap {
+    //關閉跳窗
+    display: none;
+    z-index: 0;
+  }
+  .close-login {
+    //叉叉按鈕
+    width: 50px;
+    height: 50px;
+    background-color: $color-bonus;
+    border-radius: 0 50% 0 20%;
+    position: absolute;
+    left: c100(50);
+    top: 0px;
+    @include close(85%, 45%) {
+      border-radius: 50px;
+      @extend %closeJumpWindow;
+    }
+    z-index: 50;
+  
+    @include rwd(sm) {
+      width: 70px;
+      height: 70px;
+      left: c100(70);
+      border-radius: 0 50% 0 50%;
+      @include close(90%, 55%);
+      &:after {
+        transform: translate(-10%, -10px) rotate(45deg);
+      }
+      &:before {
+        transform: translate(-10%, -10px) rotate(-45deg);
+      }
+    }
+  }
+  .input-mem {
+    transition: 0.4s;
+    outline: 0;
+    &:invalid {
+      border-bottom: 2px solid $color-hot;
+    }
+    &:focus {
+      border: 0;
+      margin-right: -10px;
+      transition: 0.4s;
+      padding: 0 15px 0 45px;
+      @include rwd(sm) {
+        cursor: text;
+        margin-right: -20px;
+        margin-left: auto;
+      }
+    }
+    &:valid {
+      margin-right: -10px;
+      padding: 0 15px 0 45px;
+      transition: 0.4s;
+      @include rwd(sm) {
+        margin-right: -20px;
+      }
+    }
+    &:focus ~ label,
+    &:valid ~ label {
+      left: -45px;
+      transition: 0.4s;
+      font-size: $fontSize-text;
+      @include rwd(sm) {
+        left: -35px;
+      }
+    }
+    &:focus ~ label > img {
+      left: 55px;
+      transition: 0.4s;
+    }
+    &:valid ~ label > img {
+      left: 55px;
+      transition: 0.4s;
+    }
+  }
+  //以上是動態區
+  #login-wrap {
+    position: fixed;
+    top: 75px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    background-color: #aaa9;
+    @include rwd(sm) {
+      position: fixed;
+      top: 100px;
+      background-color: #aaa9;
+    }
+  }
+  .login-wrap {
+    * {
+      box-sizing: border-box;
+      font-size: $fontSize-text;
+      font-weight: bold;
+      color: #333333;
+    }
+    input[type="radio"] {
+      display: none;
+    }
+    overflow-x: hidden;
+    overflow-y: scroll;
+    @include semi-transparent-colors(
+      background-color,
+      rgba($color-main3, 1),
+      $color-main3
+    );
+    border: 10px solid $color-bonus;
+    height: 100%;
+    @include rwd(sm) {
+      width: rwdW(320);
+      min-width: 320px;
+      min-height: 600px;
+      height: 65%;
+      overflow-x: inherit;
+      overflow-y: inherit;
+      border-radius: 50px;
+      box-shadow: 4px 4px 17px #aaa;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+    }
+  }
+  .login-mark {
+    text-align: center;
+    padding: 50px 0 15px;
+    @include rwd(sm){
+      padding: 100px 0 15px;
+    }
+  
+    label {
+      width: 50%;
+      float: left;
+      padding: 15px 25px;
+      font-size: $fontSize-M;
+      background-color: transparent;
+      border-bottom: 10px solid #0005;
+      color: #0005;
+      transition: 0.4s;
+      position: relative;
+      z-index: 0;
+      @include rwd(sm) {
+        font-size: $fontSize-L;
+      }
+    }
+  }
+  .longing-input {
+    width: 60%;
+    margin: auto;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    * {
+      vertical-align: middle;
+    }
+    img {
+      width: 25px;
+      height: 25px;
+      position: absolute;
+      @include top50-50;
+      left: 45px;
+      opacity: 0.5;
+      transition: 0.4s;
+    }
+    input {
+      width: 100%;
+      height: 36px;
+      border-radius: 50px;
+      border: 0;
+      background: #fff9;
+      @include rwd(sm) {
+        border-radius: 50px;
+      }
+    }
+    label {
+      font-size: $fontSize-text;
+      position: absolute;
+      left: 15px;
+      @include top50-50;
+      opacity: 0.7;
+      transition: 0.4s;
+    }
+  }
+  .longing-input {
+    .check {
+      left: calc(100% + 25px);
+      display: none;
+    }
+    .eye {
+      left: calc(100% - 45px);
+      display: none;
+    }
+  }
+  .login-placeholder {
+    padding: 2px 5px;
+    border: 2px solid $color-main1;
+    background-color: $color-main1;
+    border-radius: 10px;
+    position: absolute;
+    top: -12px;
+    right: 0;
+    z-index: 1;
+    &:after {
+      content: "";
+      width: 15px;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid transparent;
+      border-right: 15px solid $color-main1;
+      position: absolute;
+      left: 0;
+      z-index: -1;
+    }
+  }
+  .cover-run-wrap {
+    text-align: center;
+    padding: 45px 0;
+    // button{
+    // 	width: 65%;
+    // 	height: 36px;
+    // 	font-size: $fontSize-M;
+    // 	font-family: $fmy;
+    // 	border-radius: 50px;
+    // 	border: 0;
+    // 	background-color: $color-main4;
+    // 	box-shadow: 2px 5px 0px $color-main2;
+    // 	transition: .2s;
+    // 	color: #fff;
+    // 	&:hover{
+    // 		box-shadow: 0px 0px 0px $color-main2;
+    // 		transform: translate(2px,5px);
+    // 		transition: .4s;
+    // 	}
+    // }
+    @include nextAndCancel-BTN(65%);
+    button {
+      @include rwd(sm) {
+        width: 70%;
+      }
+    }
+  }
+  
+  // @include main-BTN(65%);
+  
+  .to-sigup {
+    .cover-run-wrap {
+      padding: 32px 0;
+    }
+  }
+  
+  .cover-run.to-Psw {
+    width: 100%;
+    padding: 4px 0;
+    display: inline-block;
+    text-align: center;
+    font-size: $fontSize-S;
+    color: $color-main2;
+  }
+  @include rwd(sm) {
+    .btn-cup {
+      //表示可按鈕的手指鼠標
+      cursor: pointer;
+    }
+  }

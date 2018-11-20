@@ -6,12 +6,12 @@
 // $memId = $_POST["memId"];
 // $memPsw = $_POST["memPsw"];
 
-$memId = "ke_Id";
-$memPsw = "ke_Psw";
+$memId = "ke";
+// $memPsw = "ke";
 
 try{
 	require_once("connectMember.php");
-	$sql = "select * from member where member_Id = '$memId' and member_Psw = '$memPsw'";
+	$sql = "select * from member where member_no = 1";
 	$member = $pdo -> query( $sql );
     if( $member->rowCount() == 0){
     	echo "帳密錯誤, 請<a href='login.html'>重新輸入</a>";

@@ -99,9 +99,39 @@
       border-radius: 0 0 10px 10px;
       font-size: 24px;
       font-weight: bold; }
-      .out .d-flex .container .back-nav .back-signout span, .out .d-flex .container .back-nav .back-signout a {
+      .out .d-flex .container .back-nav .back-signout span {
         padding: 20px;
+        font-size: 24px;
         color: #76391B; }
+      .out .d-flex .container .back-nav .back-signout form {
+        display: inline-block; }
+      .out .d-flex .container .back-nav .back-signout .mainBTN {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-weight: 600;
+        color: #76391B;
+        background-color: #FCE444;
+        box-shadow: 0px 4px 0px #76391B;
+        border-radius: 100px;
+        transition: .2s;
+        cursor: pointer;
+        margin: auto;
+        font-size: 20px;
+        max-width: 100px;
+        transition: .2; }
+        .out .d-flex .container .back-nav .back-signout .mainBTN:hover {
+          opacity: .7;
+          transition: .2s; }
+        .out .d-flex .container .back-nav .back-signout .mainBTN:active {
+          top: 2px; }
+      .out .d-flex .container .back-nav .back-signout .mainBTN {
+        padding: 0 15px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        font-size: 16px; }
     .out .d-flex .container .back-nav .back-change {
       border-radius: 10px; }
       .out .d-flex .container .back-nav .back-change:hover {

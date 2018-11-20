@@ -833,8 +833,7 @@ header {
           overflow: auto; }
           .member .member-contain .member-order .member-order-list > li .ordering-contain ul {
             margin-bottom: 20px;
-            width: 250%;
-            max-width: 750px; }
+            width: 250%; }
             .member .member-contain .member-order .member-order-list > li .ordering-contain ul li {
               margin: 10px;
               border: 4px solid transparent;

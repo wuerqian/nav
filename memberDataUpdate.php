@@ -13,7 +13,10 @@ try{
   $member->bindValue(":email", $_POST["email"]);
   $member->bindValue(":tel", $_POST["tel"]);
   $member->execute();
-  
+
+  // header('location:member.php');
+  echo 1;
+
 }catch(PDOException $e){
   echo $e->getMessage();
 }

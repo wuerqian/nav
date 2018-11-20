@@ -58,24 +58,24 @@
 				</p>
 			</div>
 			<script>
-				// document.getElementById("subBTN-pic").addEventListener('click',function(){
-				// 	//=====使用Ajax,更新登入者頭像
-				// 	var xhr = new XMLHttpRequest();
-				// 	// alert(document.getElementById("member-Pic").src);
-				// 	xhr.onload = function (){
-				// 		if( xhr.status == 200){
-				// 			// alert("會員頭像修改成功");
-				// 			swal("會員頭像修改成功", "", "success");
-				// 		}else{
-				// 			alert(xhr.status);
-				// 		}
-				// 	}
-				// 	xhr.open("post", "memberPicUpdate.php", true);
-				// 	xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-				// 	var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
-				// 	// alert(data_info);
-				// 	xhr.send(data_info);
-				// });
+				document.getElementById("subBTN-pic").addEventListener('click',function(){
+					//=====使用Ajax,更新登入者頭像
+					var xhr = new XMLHttpRequest();
+					// alert(document.getElementById("member-Pic").src);
+					xhr.onload = function (){
+						if( xhr.status == 200){
+							// alert("會員頭像修改成功");
+							swal("會員頭像修改成功", "", "success");
+						}else{
+							alert(xhr.status);
+						}
+					}
+					xhr.open("post", "memberPicUpdate.php", true);
+					xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+					var data_info = "memberPic=" + document.getElementById("member-Pic").src; //會員頭像url
+					// alert(data_info);
+					xhr.send(data_info);
+				});
 
 
 				// $("#subBTN-pic").click(function() {
@@ -108,7 +108,7 @@
 					<h2>
 						<img src="images/member-data-img.svg" alt="基本資料">
 					</h2>
-					<tr>
+						<tr>
 							<td><label for="member-nickname">暱稱</label></td>
 							<td>
 								<input type="text" id="member-nickname" name="nickname" name="fname" value=<?php echo $memRow->member_Nick ?>>
@@ -145,6 +145,13 @@
 							if( xhr.status == 200){
 								// alert("會員資料修改成功");
 								swal("會員資料修改成功", "", "success");
+
+								setInterval(() => {
+									document.querySelector(".swal-button").addEventListener('click',function(){
+										window.history.go(0);//重新整理頁面
+									});
+								}, 100);
+								
 							}else{
 								alert(xhr.status);
 							}
@@ -156,8 +163,7 @@
 										"&tel=" + document.getElementById("member-tel").value;//會員手機
 						// alert(data_info);
 						xhr.send(data_info);
-						
-						window.history.go(0);//重新整理頁面
+
 					});
 				</script>
 					<!-- 密碼修改 -->

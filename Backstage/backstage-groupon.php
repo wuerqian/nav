@@ -1,3 +1,6 @@
+<?php
+	require_once("Backstage-login-success.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +19,19 @@
             <div class="list-group back-nav">
                 <div class="back-logo"><img src="../images/logo3.png" alt="logo"></div>
                 <div class="back-signout">
-                    <span>登入者</span>
-                    <a href="#">登出</a>
+                    <span><?php echo $prodRowmanager->manager_Id ?></span>
+                    <form action="Backstage-login-out.php">
+                        <button type="submit" id="manager-out">登出</button>
+                    </form>
                 </div>
                 <a href="backstage-meal.php" class="list-group-item list-group-item-action back-change">餐點資訊</a>
-                <a href="backstage-groupon.php" class="list-group-item list-group-item-action back-change focus-color">飯團管理</a>
+                <!-- <a href="backstage-groupon.php" class="list-group-item list-group-item-action back-change focus-color">飯團管理</a> -->
                 <a href="backstage-message.php" class="list-group-item list-group-item-action back-change">留言審核</a>
                 <a href="backstage-chatBot.php" class="list-group-item list-group-item-action back-change">客服雞器人</a>
                 <a href="backstage-achievement.php" class="list-group-item list-group-item-action back-change">成就管理</a>
                 <a href="backstage-memberOrder.php" class="list-group-item list-group-item-action back-change">訂單管理</a>
                 <a href="backstage-manager.php" class="list-group-item list-group-item-action back-change">管理員帳號</a>
-                <a href="takeMealAfter.php" class="list-group-item list-group-item-action back-change">取餐</a>
+                <a href="takeMealAfter.php" class="list-group-item list-group-item-action back-change">會員取餐</a>
             </div>
         </div>
     
